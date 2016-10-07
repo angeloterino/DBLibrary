@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="96bb9bd1f55d4f5bb46f017eec083e65" Name="Diagram1">
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_BASIC_DATA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_BY_CHANNEL_DATA" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_BY_CHANNEL_DATA_INT" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_BY_CHANNEL_DATA_LE" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_BY_CHANNEL_DATA_PBP" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_BY_CHANNEL_GENERAL" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_CALC_DATA" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_CALC_DATA_INT" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_CALC_DATA_LE" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_CALC_DATA_PBP" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BOY_BASIC_DATA" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BOY_CALC_DATA_INT" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BOY_CALC_DATA_LE" Width="2.5" PointX="4.75" PointY="12.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BOY_CALC_DATA_PBP" Width="1.5" PointX="13.75" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BOY_BY_CHANNEL_GENERAL" Width="1.5" PointX="13.375" PointY="14.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BOY_DATA" Width="1.5" PointX="15.375" PointY="8.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.STRWM_BOY_DATA" Width="1.5" PointX="16.375" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_VIEWS_VARIABLES" Width="1.5" PointX="17.375" PointY="6.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.KPI_CONFIG" Width="1.5" PointX="17.375" PointY="9.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.KPI_MASTER" Width="1.5" PointX="17.375" PointY="13.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.BRAND_MASTER" Width="1.5" PointX="14.125" PointY="20.375" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.CHANNEL_MASTER" Width="1.5" PointX="15.375" PointY="17.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.MARKET_MASTER" Width="1.5" PointX="10.875" PointY="18.125" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_BRAND_MASTER_MARKET_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_STRWM_BOY_DATA_BRAND_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_STRWM_BOY_DATA_MARKET_MASTER" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_BOY" Width="1.5" PointX="17.375" PointY="16.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_TOTAL_CUSTOM" Width="1.5" PointX="18.375" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_BOY" Width="1.5" PointX="19.375" PointY="5.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_TOTAL_CUSTOM" Width="1.5" PointX="19.375" PointY="9.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_TMP_MASTER_DATA" Width="1.5" PointX="19.375" PointY="14.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_TMP_NTS_DATA" Width="1.5" PointX="19.375" PointY="18.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_TMP_STRWM_DATA" Width="1.5" PointX="0.75" PointY="20.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.ROSETTA_STONE" Width="1.5" PointX="20.375" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.ROSETTA_LOADER" Width="1.5" PointX="16.375" PointY="20.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_MAT_CHANNEL" Width="1.5" PointX="21.375" PointY="3.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_MONTH" Width="1.5" PointX="21.375" PointY="7.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_MONTH_CHANNEL" Width="1.5" PointX="8.375" PointY="21.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_PCVSPY" Width="1.5" PointX="10.375" PointY="21.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_PCVSPY_CHANNEL" Width="1.5" PointX="21.375" PointY="11.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_TOTAL" Width="1.5" PointX="21.375" PointY="17.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_TOTAL_CUSTOM_CHANNEL" Width="1.5" PointX="21.375" PointY="21.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_YTD" Width="1.5" PointX="18.375" PointY="22.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_YTD_CHANNEL" Width="1.5" PointX="23.375" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_BOY_CHANNEL" Width="1.5" PointX="3.375" PointY="23.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_BTG" Width="1.5" PointX="23.375" PointY="4.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_BTG_CHANNEL" Width="1.5" PointX="5.375" PointY="23.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_GROUPS_CUSTOM" Width="1.5" PointX="23.375" PointY="8.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_MAT" Width="1.5" PointX="23.375" PointY="11.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_MAT_CHANNEL" Width="1.5" PointX="23.375" PointY="15.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_MONTH" Width="1.5" PointX="23.375" PointY="19.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_MONTH_CHANNEL" Width="1.5" PointX="23.375" PointY="23.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_PCVSPY" Width="1.5" PointX="12.375" PointY="24.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_PCVSPY_CHANNEL" Width="1.5" PointX="25.375" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_TOTAL" Width="1.5" PointX="25.375" PointY="6.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_TOTAL_CUSTOM_CHANNEL" Width="1.5" PointX="7.375" PointY="25.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_YTD" Width="1.5" PointX="25.375" PointY="10.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_MARKET_YTD_CHANNEL" Width="1.5" PointX="25.375" PointY="14.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_STRWM_MARKET_DATA" Width="1.5" PointX="14.375" PointY="26.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_BTG" Width="1.5" PointX="25.375" PointY="18.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_BRAND_MAT" Width="1.5" PointX="25.375" PointY="22.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.WRK_NTS_VIEW_DATA" Width="1.5" PointX="0.75" PointY="26.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_NTS_DATA_FRANCHISE" Width="1.5" PointX="18.375" PointY="26.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_NTS_DATA_KEYBRANDS" Width="1.5" PointX="20.375" PointY="26.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_CHANNEL_DATA" Width="1.5" PointX="27.375" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_FRANCHISE_BASE" Width="1.5" PointX="27.375" PointY="3.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_FRANCHISE_DATA" Width="1.5" PointX="3.375" PointY="27.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_ENTITY_WRK_KEYBRANDS_BASE" Width="1.5" PointX="27.375" PointY="8.75" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_ROSETTA_LOADER_BRAND_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_ROSETTA_LOADER_MARKET_MASTER" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MARKET_TOTAL_DATA" Width="1.5" PointX="27.375" PointY="12.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MARKET_MAT_DATA" Width="1.5" PointX="27.375" PointY="17.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MARKET_MONTH_DATA" Width="2.625" PointX="27.375" PointY="22.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MARKET_YTD_DATA" Width="2.625" PointX="27.375" PointY="26.375" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MARKET_BOY_DATA" Width="2.75" PointX="30.25" PointY="26.375" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MARKET_BTG_DATA" Width="2.75" PointX="30.25" PointY="22.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MARKET_PCVSPY_DATA" Width="2.75" PointX="22.375" PointY="27.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_NTS_DATA_CHANNEL" Width="2.5" PointX="9.375" PointY="27.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.GROUP_CONFIG" Width="1.5" PointX="16.875" PointY="31" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.GROUP_MASTER" Width="1.5" PointX="14.625" PointY="31.125" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.GROUP_TYPES" Width="1.5" PointX="12.375" PointY="31.5" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_GROUP_CONFIG_GROUP_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_GROUP_MASTER_GROUP_TYPES" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.STRWM_BRAND_DATA_BCK" Width="1.5" PointX="19.375" PointY="30.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.STRWM_MARKET_DATA_BCK" Width="1.5" PointX="26.375" PointY="30.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.STRWM_NTS_DATA_BCK" Width="1.5" PointX="28.375" PointY="30.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BRAND_BOY_DATA" Width="1.5" PointX="29.75" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BRAND_BTG_DATA" Width="1.5" PointX="29.75" PointY="5.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BRAND_MAT_DATA" Width="1.5" PointX="29.75" PointY="10.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BRAND_MONTH_DATA" Width="1.5" PointX="29.75" PointY="15.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BRAND_PCVSPY_DATA" Width="1.5" PointX="0.75" PointY="30.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BRAND_TOTAL_DATA" Width="1.5" PointX="2.75" PointY="30.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BRAND_YTD_DATA" Width="1.5" PointX="4.75" PointY="30.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.TMP_NTS_DATA" Width="1.5" PointX="30.375" PointY="30.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_BOY_BY_CHANNEL_CALC" Width="1.5" PointX="6.875" PointY="30.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_SHAREBOARD_MAT" Width="1.5" PointX="9.375" PointY="31.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_SHAREBOARD_MONTH" Width="1.5" PointX="32.375" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_SHAREBOARD_YTD" Width="1.5" PointX="32.375" PointY="5.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.LETTERS_COMMENT_DATA" Width="2.375" PointX="36" PointY="12.125" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.MANAGEMENT_LETTERS_MASTER" Width="2.25" PointX="32.375" PointY="13.625" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.MANAGEMENT_LETTERS_REL" Width="2.5" PointX="36" PointY="15.25" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_LETTERS_COMMENT_DATA_MANAGEMENT_LETTERS_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_MANAGEMENT_LETTERS_REL_MANAGEMENT_LETTERS_MASTER" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.MARKET_GROUPS" Width="1.5" PointX="32.375" PointY="17.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.MENU_CONFIG" Width="1.5" PointX="21.375" PointY="33.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.MENU_MASTER" Width="1.5" PointX="23.375" PointY="33.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.USER_ROLE_TYPES" Width="1.5" PointX="32.375" PointY="31.375" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.USERS_PERMISSIONS" Width="1.5" PointX="36.875" PointY="31" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.USERS_ROLES" Width="1.5" PointX="34.625" PointY="31.125" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_USERS_ROLES_USER_ROLE_TYPES" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_USERS_PERMISSIONS_USERS_ROLES" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.BOY_CONFIG" Width="1.5" PointX="34.375" PointY="0.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_FRANCHISE_MASTER" Width="1.5" PointX="34.375" PointY="4.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_FRANCHISE_CUSTOM_BASE" Width="1.5" PointX="11.375" PointY="34.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_FRANCHISE_CUSTOM_DATA" Width="1.5" PointX="13.375" PointY="34.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MANAGEMENT_LETTERS_DATA" Width="1.5" PointX="15.375" PointY="34.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MONTHLY_COMMENTS_DATA" Width="1.5" PointX="34.375" PointY="18.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

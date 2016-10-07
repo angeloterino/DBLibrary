@@ -1,0 +1,818 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="godzillaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_BASE_TOTAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_BASE_TOTAL">
+    <Key>
+      <PropertyRef Name="TYPE" />
+      <PropertyRef Name="MARKET" />
+      <PropertyRef Name="BRAND" />
+    </Key>
+    <Property Name="TYPE" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NTS_ORDER" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="GROUP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="MARKET NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="BRAND" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="BRAND NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="NTS_NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="BRAND COL1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="BRAND COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET COL1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="NTS COL1" Type="decimal" Precision="22" Scale="0" />
+    <Property Name="NTS COL2" Type="decimal" Precision="22" Scale="0" />
+    <Property Name="SUM ROWS" Type="int" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_BASIC_DATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_BASIC_DATA">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="ID" Type="bigint" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NTS_ORDER" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="GROUP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="BRAND" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="BRAND NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="NTS_NAME" Type="nvarchar" MaxLength="261" />
+    <Property Name="TYPE" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="MARKET CO1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT COL1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN COL1" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="SELLIN COL2" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="SELLIN PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CONVERSION RATE1" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CONVERSION RATE2" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_BY_CHANNEL_CALC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_BY_CHANNEL_CALC">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="ID" Type="bigint" />
+    <Property Name="TYPE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="MARKET COL1" Type="float" />
+    <Property Name="MARKET COL2" Type="float" />
+    <Property Name="SELLOUT COL1" Type="float" />
+    <Property Name="SELLOUT COL2" Type="float" />
+    <Property Name="SELLIN COL1" Type="float" />
+    <Property Name="SELLIN COL2" Type="float" />
+    <Property Name="MARKET CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL2" Type="int" />
+    <Property Name="SHARE CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CONVERSION RATE COL1" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CONVERSION RATE COL2" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_BY_CHANNEL_DATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_BY_CHANNEL_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="TYPE" Type="varchar" MaxLength="6" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NTS_NAME" Type="nvarchar" MaxLength="261" />
+    <Property Name="MARKET COL1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT COL1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN COL1" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="SELLIN COL2" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="SELLIN CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE CHGE" Type="decimal" Precision="19" Scale="2" />
+    <Property Name="CONVERSION RATE COL1" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CONVERSION RATE COL2" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_BY_CHANNEL_DATA_INT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_BY_CHANNEL_DATA_INT">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="TYPE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET INT" Type="float" />
+    <Property Name="MARKET PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="MARKET COL3" Type="int" />
+    <Property Name="MARKET COL4" Type="int" />
+    <Property Name="SELLOUT INT" Type="float" />
+    <Property Name="SELLOUT PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SELLOUT COL3" Type="int" />
+    <Property Name="SELLOUT COL4" Type="int" />
+    <Property Name="SHARE INT" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SHARE CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PCVSINT" Type="int" />
+    <Property Name="SELLIN INT" Type="float" />
+    <Property Name="SELLIN PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SELLIN COL3" Type="int" />
+    <Property Name="SELLIN COL4" Type="int" />
+    <Property Name="CONVERSION RATE" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_BY_CHANNEL_DATA_LE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_BY_CHANNEL_DATA_LE">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="TYPE" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET LE" Type="float" />
+    <Property Name="MARKET PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="MARKET DIFF" Type="float" />
+    <Property Name="MARKET PCVSINT" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SELLOUT LE" Type="float" />
+    <Property Name="SELLOUT PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SELLOUT DIFF" Type="float" />
+    <Property Name="SELLOUT PCVSINT" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SHARE LE" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SHARE CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PCVSINT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN LE" Type="float" />
+    <Property Name="SELLIN PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SELLIN DIFF" Type="float" />
+    <Property Name="SELLIN PCVSINT" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="CONVERSION RATE" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_BY_CHANNEL_DATA_PBP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_BY_CHANNEL_DATA_PBP">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="TYPE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET PBP" Type="float" />
+    <Property Name="MARKET PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="MARKET COL3" Type="int" />
+    <Property Name="MARKET COL4" Type="int" />
+    <Property Name="SELLOUT PBP" Type="float" />
+    <Property Name="SELLOUT PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SELLOUT COL3" Type="int" />
+    <Property Name="SELLOUT COL4" Type="int" />
+    <Property Name="SHARE PBP" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SHARE CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PCVSINT" Type="int" />
+    <Property Name="SELLIN PBP" Type="float" />
+    <Property Name="SELLIN PCVSPY" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="SELLIN COL3" Type="int" />
+    <Property Name="SELLIN COL4" Type="int" />
+    <Property Name="CONVERSION RATE" Type="decimal" Precision="18" Scale="1" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_BY_CHANNEL_GENERAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_BY_CHANNEL_GENERAL">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="ID" Type="bigint" />
+    <Property Name="TYPE" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="MARKET COL1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT COL1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLIN COL1" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLIN COL2" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL2" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE CHGE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CONVERSION RATE COL1" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CONVERSION RATE COL2" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_CALC_DATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_CALC_DATA">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="ID" Type="bigint" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NTS_ORDER" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="GROUP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="BRAND" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="BRAND NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="NTS_NAME" Type="nvarchar" MaxLength="261" />
+    <Property Name="TYPE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="MARKET COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET COL1" Type="float" />
+    <Property Name="MARKET PC TYPE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MARKET PC INT" Type="float" />
+    <Property Name="MARKET ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET COL2" Type="float" />
+    <Property Name="SELLOUT COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT COL1" Type="float" />
+    <Property Name="SELLOUT PC TYPE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT PC INT" Type="float" />
+    <Property Name="SELLOUT ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SELLOUT COL2" Type="float" />
+    <Property Name="SELLIN COL" Type="float" />
+    <Property Name="SELLIN COL1" Type="float" />
+    <Property Name="SELLIN PC TYPE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN PC INT" Type="float" />
+    <Property Name="SELLIN ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SELLIN COL2" Type="float" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_CALC_DATA_INT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_CALC_DATA_INT">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NTS_ORDER" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="GROUP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="BRAND" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="BRAND NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="NTS_NAME" Type="nvarchar" MaxLength="267" />
+    <Property Name="TYPE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="MARKET COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET INT" Type="float" />
+    <Property Name="MARKET COL1" Type="float" />
+    <Property Name="SELLOUT COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT INT" Type="float" />
+    <Property Name="SELLOUT COL1" Type="float" />
+    <Property Name="SELLIN COL" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="SELLIN INT" Type="float" />
+    <Property Name="SELLIN COL1" Type="float" />
+    <Property Name="MARKET PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE TOTAL" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CONVERSION RATE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MARKET ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SELLOUT ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SELLIN ID" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_CALC_DATA_LE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_CALC_DATA_LE">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NTS_ORDER" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="GROUP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="BRAND" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="BRAND NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="NTS_NAME" Type="nvarchar" MaxLength="267" />
+    <Property Name="TYPE" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="MARKET COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET BTG" Type="float" />
+    <Property Name="MARKET YTD" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT YTD" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLIN YTD" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="MARKET COL1" Type="float" />
+    <Property Name="MARKET COL2" Type="float" />
+    <Property Name="SELLOUT COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT BTG" Type="float" />
+    <Property Name="SELLOUT COL1" Type="float" />
+    <Property Name="SELLOUT COL2" Type="float" />
+    <Property Name="SELLIN COL" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="SELLIN BTG" Type="float" />
+    <Property Name="SELLIN COL1" Type="float" />
+    <Property Name="SELLIN COL2" Type="float" />
+    <Property Name="MARKET PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE TOTAL" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CONVERSION RATE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MARKET DIFF" Type="float" />
+    <Property Name="SELLOUT DIFF" Type="float" />
+    <Property Name="SELLIN DIFF" Type="float" />
+    <Property Name="MARKET PC INT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT PC INT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN PC INT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PC INT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MARKET ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SELLOUT ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SELLIN ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_CALC_DATA_PBP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_CALC_DATA_PBP">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NTS_ORDER" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="GROUP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="BRAND" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="BRAND NAME" Type="int" />
+    <Property Name="NTS_NAME" Type="nvarchar" MaxLength="267" />
+    <Property Name="TYPE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="MARKET COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET PBP" Type="float" />
+    <Property Name="MARKET COL1" Type="float" />
+    <Property Name="SELLOUT COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT PBP" Type="float" />
+    <Property Name="SELLOUT COL1" Type="float" />
+    <Property Name="SELLIN COL" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="SELLIN PBP" Type="float" />
+    <Property Name="SELLIN COL1" Type="float" />
+    <Property Name="MARKET PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE TOTAL" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CONVERSION RATE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MARKET ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SELLOUT ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="SELLIN ID" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="19" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'godzilla.dbo.v_WRK_BOY_CALC_DATA_TOTAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_WRK_BOY_CALC_DATA_TOTAL">
+    <Key>
+      <PropertyRef Name="TYPE" />
+    </Key>
+    <Property Name="CHANNEL" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NTS_ORDER" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="GROUP" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="BRAND" Type="numeric" Precision="20" Scale="0" />
+    <Property Name="BRAND NAME" Type="int" />
+    <Property Name="NTS_NAME" Type="nvarchar" MaxLength="267" />
+    <Property Name="TYPE" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="MARKET COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="MARKET TYPE" Type="float" />
+    <Property Name="MARKET YTD" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT YTD" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLIN YTD" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="MARKET COL1" Type="float" />
+    <Property Name="MARKET COL2" Type="float" />
+    <Property Name="SELLOUT COL" Type="numeric" Precision="38" Scale="0" />
+    <Property Name="SELLOUT TYPE" Type="float" />
+    <Property Name="SELLOUT COL1" Type="float" />
+    <Property Name="SELLOUT COL2" Type="float" />
+    <Property Name="SELLIN COL" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="SELLIN TYPE" Type="float" />
+    <Property Name="SELLIN COL1" Type="float" />
+    <Property Name="SELLIN COL2" Type="float" />
+    <Property Name="MARKET PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE TOTAL" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE COL1" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN PC" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CONVERSION RATE" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="MARKET DIFF" Type="float" />
+    <Property Name="SELLOUT DIFF" Type="float" />
+    <Property Name="SELLIN DIFF" Type="float" />
+    <Property Name="MARKET PC INT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLOUT PC INT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLIN PC INT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SHARE PC INT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MARKET ID" Type="int" />
+    <Property Name="SELLOUT ID" Type="int" />
+    <Property Name="SELLIN ID" Type="int" />
+    <Property Name="YEAR PERIOD" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="MONTH PERIOD" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="godzillaModelStoreContainer">
+    <EntitySet Name="v_WRK_BOY_BASE_TOTAL" EntityType="Self.v_WRK_BOY_BASE_TOTAL" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_BASE_TOTAL].[TYPE] AS [TYPE], 
+[v_WRK_BOY_BASE_TOTAL].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_BASE_TOTAL].[NTS_ORDER] AS [NTS_ORDER], 
+[v_WRK_BOY_BASE_TOTAL].[GROUP] AS [GROUP], 
+[v_WRK_BOY_BASE_TOTAL].[MARKET] AS [MARKET], 
+[v_WRK_BOY_BASE_TOTAL].[MARKET NAME] AS [MARKET NAME], 
+[v_WRK_BOY_BASE_TOTAL].[BRAND] AS [BRAND], 
+[v_WRK_BOY_BASE_TOTAL].[BRAND NAME] AS [BRAND NAME], 
+[v_WRK_BOY_BASE_TOTAL].[NTS_NAME] AS [NTS_NAME], 
+[v_WRK_BOY_BASE_TOTAL].[BRAND COL1] AS [BRAND COL1], 
+[v_WRK_BOY_BASE_TOTAL].[BRAND COL2] AS [BRAND COL2], 
+[v_WRK_BOY_BASE_TOTAL].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_BASE_TOTAL].[MARKET COL2] AS [MARKET COL2], 
+[v_WRK_BOY_BASE_TOTAL].[NTS COL1] AS [NTS COL1], 
+[v_WRK_BOY_BASE_TOTAL].[NTS COL2] AS [NTS COL2], 
+[v_WRK_BOY_BASE_TOTAL].[SUM ROWS] AS [SUM ROWS], 
+[v_WRK_BOY_BASE_TOTAL].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_BASE_TOTAL].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_BASE_TOTAL] AS [v_WRK_BOY_BASE_TOTAL]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_BASIC_DATA" EntityType="Self.v_WRK_BOY_BASIC_DATA" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_BASIC_DATA].[ID] AS [ID], 
+[v_WRK_BOY_BASIC_DATA].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_BASIC_DATA].[NTS_ORDER] AS [NTS_ORDER], 
+[v_WRK_BOY_BASIC_DATA].[GROUP] AS [GROUP], 
+[v_WRK_BOY_BASIC_DATA].[MARKET] AS [MARKET], 
+[v_WRK_BOY_BASIC_DATA].[BRAND] AS [BRAND], 
+[v_WRK_BOY_BASIC_DATA].[BRAND NAME] AS [BRAND NAME], 
+[v_WRK_BOY_BASIC_DATA].[NTS_NAME] AS [NTS_NAME], 
+[v_WRK_BOY_BASIC_DATA].[TYPE] AS [TYPE], 
+[v_WRK_BOY_BASIC_DATA].[MARKET CO1] AS [MARKET CO1], 
+[v_WRK_BOY_BASIC_DATA].[MARKET COL2] AS [MARKET COL2], 
+[v_WRK_BOY_BASIC_DATA].[MARKET PC] AS [MARKET PC], 
+[v_WRK_BOY_BASIC_DATA].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_BASIC_DATA].[SELLOUT COL2] AS [SELLOUT COL2], 
+[v_WRK_BOY_BASIC_DATA].[SELLOUT PC] AS [SELLOUT PC], 
+[v_WRK_BOY_BASIC_DATA].[SHARE COL1] AS [SHARE COL1], 
+[v_WRK_BOY_BASIC_DATA].[SHARE COL2] AS [SHARE COL2], 
+[v_WRK_BOY_BASIC_DATA].[SHARE PC] AS [SHARE PC], 
+[v_WRK_BOY_BASIC_DATA].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_BASIC_DATA].[SELLIN COL2] AS [SELLIN COL2], 
+[v_WRK_BOY_BASIC_DATA].[SELLIN PC] AS [SELLIN PC], 
+[v_WRK_BOY_BASIC_DATA].[CONVERSION RATE1] AS [CONVERSION RATE1], 
+[v_WRK_BOY_BASIC_DATA].[CONVERSION RATE2] AS [CONVERSION RATE2], 
+[v_WRK_BOY_BASIC_DATA].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_BASIC_DATA].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_BASIC_DATA] AS [v_WRK_BOY_BASIC_DATA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_BY_CHANNEL_CALC" EntityType="Self.v_WRK_BOY_BY_CHANNEL_CALC" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_BY_CHANNEL_CALC].[ID] AS [ID], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[TYPE] AS [TYPE], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[MONTH PERIOD] AS [MONTH PERIOD], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[NAME] AS [NAME], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[MARKET COL2] AS [MARKET COL2], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SELLOUT COL2] AS [SELLOUT COL2], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SELLIN COL2] AS [SELLIN COL2], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[MARKET CHGE] AS [MARKET CHGE], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SELLOUT CHGE] AS [SELLOUT CHGE], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SELLIN CHGE] AS [SELLIN CHGE], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SHARE COL1] AS [SHARE COL1], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SHARE COL2] AS [SHARE COL2], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[SHARE CHGE] AS [SHARE CHGE], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[CONVERSION RATE COL1] AS [CONVERSION RATE COL1], 
+[v_WRK_BOY_BY_CHANNEL_CALC].[CONVERSION RATE COL2] AS [CONVERSION RATE COL2]
+FROM [dbo].[v_WRK_BOY_BY_CHANNEL_CALC] AS [v_WRK_BOY_BY_CHANNEL_CALC]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_BY_CHANNEL_DATA" EntityType="Self.v_WRK_BOY_BY_CHANNEL_DATA" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_BY_CHANNEL_DATA].[ID] AS [ID], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[TYPE] AS [TYPE], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[NTS_NAME] AS [NTS_NAME], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[MARKET COL2] AS [MARKET COL2], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[MARKET CHGE] AS [MARKET CHGE], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SELLOUT COL2] AS [SELLOUT COL2], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SELLOUT CHGE] AS [SELLOUT CHGE], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SELLIN COL2] AS [SELLIN COL2], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SELLIN CHGE] AS [SELLIN CHGE], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SHARE COL1] AS [SHARE COL1], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SHARE COL2] AS [SHARE COL2], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[SHARE CHGE] AS [SHARE CHGE], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[CONVERSION RATE COL1] AS [CONVERSION RATE COL1], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[CONVERSION RATE COL2] AS [CONVERSION RATE COL2], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_BY_CHANNEL_DATA].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_BY_CHANNEL_DATA] AS [v_WRK_BOY_BY_CHANNEL_DATA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_BY_CHANNEL_DATA_INT" EntityType="Self.v_WRK_BOY_BY_CHANNEL_DATA_INT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[TYPE] AS [TYPE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[MARKET INT] AS [MARKET INT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[MARKET PCVSPY] AS [MARKET PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[MARKET COL3] AS [MARKET COL3], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[MARKET COL4] AS [MARKET COL4], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SELLOUT INT] AS [SELLOUT INT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SELLOUT PCVSPY] AS [SELLOUT PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SELLOUT COL3] AS [SELLOUT COL3], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SELLOUT COL4] AS [SELLOUT COL4], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SHARE INT] AS [SHARE INT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SHARE CHGE] AS [SHARE CHGE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SHARE PCVSINT] AS [SHARE PCVSINT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SELLIN INT] AS [SELLIN INT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SELLIN PCVSPY] AS [SELLIN PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SELLIN COL3] AS [SELLIN COL3], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[SELLIN COL4] AS [SELLIN COL4], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[CONVERSION RATE] AS [CONVERSION RATE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_BY_CHANNEL_DATA_INT].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_BY_CHANNEL_DATA_INT] AS [v_WRK_BOY_BY_CHANNEL_DATA_INT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_BY_CHANNEL_DATA_LE" EntityType="Self.v_WRK_BOY_BY_CHANNEL_DATA_LE" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[TYPE] AS [TYPE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[MARKET LE] AS [MARKET LE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[MARKET PCVSPY] AS [MARKET PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[MARKET DIFF] AS [MARKET DIFF], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[MARKET PCVSINT] AS [MARKET PCVSINT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SELLOUT LE] AS [SELLOUT LE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SELLOUT PCVSPY] AS [SELLOUT PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SELLOUT DIFF] AS [SELLOUT DIFF], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SELLOUT PCVSINT] AS [SELLOUT PCVSINT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SHARE LE] AS [SHARE LE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SHARE CHGE] AS [SHARE CHGE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SHARE PCVSINT] AS [SHARE PCVSINT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SELLIN LE] AS [SELLIN LE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SELLIN PCVSPY] AS [SELLIN PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SELLIN DIFF] AS [SELLIN DIFF], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[SELLIN PCVSINT] AS [SELLIN PCVSINT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[CONVERSION RATE] AS [CONVERSION RATE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_BY_CHANNEL_DATA_LE].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_BY_CHANNEL_DATA_LE] AS [v_WRK_BOY_BY_CHANNEL_DATA_LE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_BY_CHANNEL_DATA_PBP" EntityType="Self.v_WRK_BOY_BY_CHANNEL_DATA_PBP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[TYPE] AS [TYPE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[MARKET PBP] AS [MARKET PBP], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[MARKET PCVSPY] AS [MARKET PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[MARKET COL3] AS [MARKET COL3], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[MARKET COL4] AS [MARKET COL4], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SELLOUT PBP] AS [SELLOUT PBP], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SELLOUT PCVSPY] AS [SELLOUT PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SELLOUT COL3] AS [SELLOUT COL3], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SELLOUT COL4] AS [SELLOUT COL4], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SHARE PBP] AS [SHARE PBP], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SHARE CHGE] AS [SHARE CHGE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SHARE PCVSINT] AS [SHARE PCVSINT], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SELLIN PBP] AS [SELLIN PBP], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SELLIN PCVSPY] AS [SELLIN PCVSPY], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SELLIN COL3] AS [SELLIN COL3], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[SELLIN COL4] AS [SELLIN COL4], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[CONVERSION RATE] AS [CONVERSION RATE], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_BY_CHANNEL_DATA_PBP].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_BY_CHANNEL_DATA_PBP] AS [v_WRK_BOY_BY_CHANNEL_DATA_PBP]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_BY_CHANNEL_GENERAL" EntityType="Self.v_WRK_BOY_BY_CHANNEL_GENERAL" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[ID] AS [ID], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[TYPE] AS [TYPE], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[MONTH PERIOD] AS [MONTH PERIOD], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[NAME] AS [NAME], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[MARKET COL2] AS [MARKET COL2], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SELLOUT COL2] AS [SELLOUT COL2], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SELLIN COL2] AS [SELLIN COL2], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[MARKET CHGE] AS [MARKET CHGE], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SELLOUT CHGE] AS [SELLOUT CHGE], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SELLIN CHGE] AS [SELLIN CHGE], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SHARE COL1] AS [SHARE COL1], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SHARE COL2] AS [SHARE COL2], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[SHARE CHGE] AS [SHARE CHGE], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[CONVERSION RATE COL1] AS [CONVERSION RATE COL1], 
+[v_WRK_BOY_BY_CHANNEL_GENERAL].[CONVERSION RATE COL2] AS [CONVERSION RATE COL2]
+FROM [dbo].[v_WRK_BOY_BY_CHANNEL_GENERAL] AS [v_WRK_BOY_BY_CHANNEL_GENERAL]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_CALC_DATA" EntityType="Self.v_WRK_BOY_CALC_DATA" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_CALC_DATA].[ID] AS [ID], 
+[v_WRK_BOY_CALC_DATA].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_CALC_DATA].[NTS_ORDER] AS [NTS_ORDER], 
+[v_WRK_BOY_CALC_DATA].[GROUP] AS [GROUP], 
+[v_WRK_BOY_CALC_DATA].[MARKET] AS [MARKET], 
+[v_WRK_BOY_CALC_DATA].[BRAND] AS [BRAND], 
+[v_WRK_BOY_CALC_DATA].[BRAND NAME] AS [BRAND NAME], 
+[v_WRK_BOY_CALC_DATA].[NTS_NAME] AS [NTS_NAME], 
+[v_WRK_BOY_CALC_DATA].[TYPE] AS [TYPE], 
+[v_WRK_BOY_CALC_DATA].[MARKET COL] AS [MARKET COL], 
+[v_WRK_BOY_CALC_DATA].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_CALC_DATA].[MARKET PC TYPE] AS [MARKET PC TYPE], 
+[v_WRK_BOY_CALC_DATA].[MARKET PC INT] AS [MARKET PC INT], 
+[v_WRK_BOY_CALC_DATA].[MARKET ID] AS [MARKET ID], 
+[v_WRK_BOY_CALC_DATA].[MARKET COL2] AS [MARKET COL2], 
+[v_WRK_BOY_CALC_DATA].[SELLOUT COL] AS [SELLOUT COL], 
+[v_WRK_BOY_CALC_DATA].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_CALC_DATA].[SELLOUT PC TYPE] AS [SELLOUT PC TYPE], 
+[v_WRK_BOY_CALC_DATA].[SELLOUT PC INT] AS [SELLOUT PC INT], 
+[v_WRK_BOY_CALC_DATA].[SELLOUT ID] AS [SELLOUT ID], 
+[v_WRK_BOY_CALC_DATA].[SELLOUT COL2] AS [SELLOUT COL2], 
+[v_WRK_BOY_CALC_DATA].[SELLIN COL] AS [SELLIN COL], 
+[v_WRK_BOY_CALC_DATA].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_CALC_DATA].[SELLIN PC TYPE] AS [SELLIN PC TYPE], 
+[v_WRK_BOY_CALC_DATA].[SELLIN PC INT] AS [SELLIN PC INT], 
+[v_WRK_BOY_CALC_DATA].[SELLIN ID] AS [SELLIN ID], 
+[v_WRK_BOY_CALC_DATA].[SELLIN COL2] AS [SELLIN COL2], 
+[v_WRK_BOY_CALC_DATA].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_CALC_DATA].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_CALC_DATA] AS [v_WRK_BOY_CALC_DATA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_CALC_DATA_INT" EntityType="Self.v_WRK_BOY_CALC_DATA_INT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_CALC_DATA_INT].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_CALC_DATA_INT].[MONTH PERIOD] AS [MONTH PERIOD], 
+[v_WRK_BOY_CALC_DATA_INT].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_CALC_DATA_INT].[NTS_ORDER] AS [NTS_ORDER], 
+[v_WRK_BOY_CALC_DATA_INT].[GROUP] AS [GROUP], 
+[v_WRK_BOY_CALC_DATA_INT].[MARKET] AS [MARKET], 
+[v_WRK_BOY_CALC_DATA_INT].[BRAND] AS [BRAND], 
+[v_WRK_BOY_CALC_DATA_INT].[BRAND NAME] AS [BRAND NAME], 
+[v_WRK_BOY_CALC_DATA_INT].[NTS_NAME] AS [NTS_NAME], 
+[v_WRK_BOY_CALC_DATA_INT].[TYPE] AS [TYPE], 
+[v_WRK_BOY_CALC_DATA_INT].[MARKET COL] AS [MARKET COL], 
+[v_WRK_BOY_CALC_DATA_INT].[MARKET INT] AS [MARKET INT], 
+[v_WRK_BOY_CALC_DATA_INT].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLOUT COL] AS [SELLOUT COL], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLOUT INT] AS [SELLOUT INT], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLIN COL] AS [SELLIN COL], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLIN INT] AS [SELLIN INT], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_CALC_DATA_INT].[MARKET PC] AS [MARKET PC], 
+[v_WRK_BOY_CALC_DATA_INT].[SHARE TOTAL] AS [SHARE TOTAL], 
+[v_WRK_BOY_CALC_DATA_INT].[SHARE COL1] AS [SHARE COL1], 
+[v_WRK_BOY_CALC_DATA_INT].[SHARE PC] AS [SHARE PC], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLOUT PC] AS [SELLOUT PC], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLIN PC] AS [SELLIN PC], 
+[v_WRK_BOY_CALC_DATA_INT].[CONVERSION RATE] AS [CONVERSION RATE], 
+[v_WRK_BOY_CALC_DATA_INT].[MARKET ID] AS [MARKET ID], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLOUT ID] AS [SELLOUT ID], 
+[v_WRK_BOY_CALC_DATA_INT].[SELLIN ID] AS [SELLIN ID]
+FROM [dbo].[v_WRK_BOY_CALC_DATA_INT] AS [v_WRK_BOY_CALC_DATA_INT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_CALC_DATA_LE" EntityType="Self.v_WRK_BOY_CALC_DATA_LE" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_CALC_DATA_LE].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_CALC_DATA_LE].[NTS_ORDER] AS [NTS_ORDER], 
+[v_WRK_BOY_CALC_DATA_LE].[GROUP] AS [GROUP], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET] AS [MARKET], 
+[v_WRK_BOY_CALC_DATA_LE].[BRAND] AS [BRAND], 
+[v_WRK_BOY_CALC_DATA_LE].[BRAND NAME] AS [BRAND NAME], 
+[v_WRK_BOY_CALC_DATA_LE].[NTS_NAME] AS [NTS_NAME], 
+[v_WRK_BOY_CALC_DATA_LE].[TYPE] AS [TYPE], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET COL] AS [MARKET COL], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET BTG] AS [MARKET BTG], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET YTD] AS [MARKET YTD], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT YTD] AS [SELLOUT YTD], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN YTD] AS [SELLIN YTD], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET COL2] AS [MARKET COL2], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT COL] AS [SELLOUT COL], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT BTG] AS [SELLOUT BTG], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT COL2] AS [SELLOUT COL2], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN COL] AS [SELLIN COL], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN BTG] AS [SELLIN BTG], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN COL2] AS [SELLIN COL2], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET PC] AS [MARKET PC], 
+[v_WRK_BOY_CALC_DATA_LE].[SHARE TOTAL] AS [SHARE TOTAL], 
+[v_WRK_BOY_CALC_DATA_LE].[SHARE COL1] AS [SHARE COL1], 
+[v_WRK_BOY_CALC_DATA_LE].[SHARE PC] AS [SHARE PC], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT PC] AS [SELLOUT PC], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN PC] AS [SELLIN PC], 
+[v_WRK_BOY_CALC_DATA_LE].[CONVERSION RATE] AS [CONVERSION RATE], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET DIFF] AS [MARKET DIFF], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT DIFF] AS [SELLOUT DIFF], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN DIFF] AS [SELLIN DIFF], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET PC INT] AS [MARKET PC INT], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT PC INT] AS [SELLOUT PC INT], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN PC INT] AS [SELLIN PC INT], 
+[v_WRK_BOY_CALC_DATA_LE].[SHARE PC INT] AS [SHARE PC INT], 
+[v_WRK_BOY_CALC_DATA_LE].[MARKET ID] AS [MARKET ID], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLOUT ID] AS [SELLOUT ID], 
+[v_WRK_BOY_CALC_DATA_LE].[SELLIN ID] AS [SELLIN ID], 
+[v_WRK_BOY_CALC_DATA_LE].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_CALC_DATA_LE].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_CALC_DATA_LE] AS [v_WRK_BOY_CALC_DATA_LE]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_CALC_DATA_PBP" EntityType="Self.v_WRK_BOY_CALC_DATA_PBP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_CALC_DATA_PBP].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_CALC_DATA_PBP].[NTS_ORDER] AS [NTS_ORDER], 
+[v_WRK_BOY_CALC_DATA_PBP].[GROUP] AS [GROUP], 
+[v_WRK_BOY_CALC_DATA_PBP].[MARKET] AS [MARKET], 
+[v_WRK_BOY_CALC_DATA_PBP].[BRAND] AS [BRAND], 
+[v_WRK_BOY_CALC_DATA_PBP].[BRAND NAME] AS [BRAND NAME], 
+[v_WRK_BOY_CALC_DATA_PBP].[NTS_NAME] AS [NTS_NAME], 
+[v_WRK_BOY_CALC_DATA_PBP].[TYPE] AS [TYPE], 
+[v_WRK_BOY_CALC_DATA_PBP].[MARKET COL] AS [MARKET COL], 
+[v_WRK_BOY_CALC_DATA_PBP].[MARKET PBP] AS [MARKET PBP], 
+[v_WRK_BOY_CALC_DATA_PBP].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLOUT COL] AS [SELLOUT COL], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLOUT PBP] AS [SELLOUT PBP], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLIN COL] AS [SELLIN COL], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLIN PBP] AS [SELLIN PBP], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_CALC_DATA_PBP].[MARKET PC] AS [MARKET PC], 
+[v_WRK_BOY_CALC_DATA_PBP].[SHARE TOTAL] AS [SHARE TOTAL], 
+[v_WRK_BOY_CALC_DATA_PBP].[SHARE COL1] AS [SHARE COL1], 
+[v_WRK_BOY_CALC_DATA_PBP].[SHARE PC] AS [SHARE PC], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLOUT PC] AS [SELLOUT PC], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLIN PC] AS [SELLIN PC], 
+[v_WRK_BOY_CALC_DATA_PBP].[CONVERSION RATE] AS [CONVERSION RATE], 
+[v_WRK_BOY_CALC_DATA_PBP].[MARKET ID] AS [MARKET ID], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLOUT ID] AS [SELLOUT ID], 
+[v_WRK_BOY_CALC_DATA_PBP].[SELLIN ID] AS [SELLIN ID], 
+[v_WRK_BOY_CALC_DATA_PBP].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_CALC_DATA_PBP].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_CALC_DATA_PBP] AS [v_WRK_BOY_CALC_DATA_PBP]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_WRK_BOY_CALC_DATA_TOTAL" EntityType="Self.v_WRK_BOY_CALC_DATA_TOTAL" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[v_WRK_BOY_CALC_DATA_TOTAL].[CHANNEL] AS [CHANNEL], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[NTS_ORDER] AS [NTS_ORDER], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[GROUP] AS [GROUP], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET] AS [MARKET], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[BRAND] AS [BRAND], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[BRAND NAME] AS [BRAND NAME], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[NTS_NAME] AS [NTS_NAME], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[TYPE] AS [TYPE], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET COL] AS [MARKET COL], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET TYPE] AS [MARKET TYPE], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET YTD] AS [MARKET YTD], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT YTD] AS [SELLOUT YTD], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN YTD] AS [SELLIN YTD], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET COL1] AS [MARKET COL1], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET COL2] AS [MARKET COL2], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT COL] AS [SELLOUT COL], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT TYPE] AS [SELLOUT TYPE], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT COL1] AS [SELLOUT COL1], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT COL2] AS [SELLOUT COL2], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN COL] AS [SELLIN COL], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN TYPE] AS [SELLIN TYPE], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN COL1] AS [SELLIN COL1], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN COL2] AS [SELLIN COL2], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET PC] AS [MARKET PC], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SHARE TOTAL] AS [SHARE TOTAL], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SHARE COL1] AS [SHARE COL1], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SHARE PC] AS [SHARE PC], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT PC] AS [SELLOUT PC], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN PC] AS [SELLIN PC], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[CONVERSION RATE] AS [CONVERSION RATE], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET DIFF] AS [MARKET DIFF], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT DIFF] AS [SELLOUT DIFF], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN DIFF] AS [SELLIN DIFF], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET PC INT] AS [MARKET PC INT], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT PC INT] AS [SELLOUT PC INT], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN PC INT] AS [SELLIN PC INT], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SHARE PC INT] AS [SHARE PC INT], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MARKET ID] AS [MARKET ID], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLOUT ID] AS [SELLOUT ID], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[SELLIN ID] AS [SELLIN ID], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[YEAR PERIOD] AS [YEAR PERIOD], 
+[v_WRK_BOY_CALC_DATA_TOTAL].[MONTH PERIOD] AS [MONTH PERIOD]
+FROM [dbo].[v_WRK_BOY_CALC_DATA_TOTAL] AS [v_WRK_BOY_CALC_DATA_TOTAL]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
