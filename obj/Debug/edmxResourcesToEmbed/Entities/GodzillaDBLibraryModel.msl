@@ -2123,5 +2123,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="v_KEYBRANDS_MASTER">
+      <EntityTypeMapping TypeName="godzillaDBLibraryModel.v_KEYBRANDS_MASTER">
+        <MappingFragment StoreEntitySet="v_KEYBRANDS_MASTER">
+          <ScalarProperty Name="CONFIG_BRAND" ColumnName="CONFIG BRAND" />
+          <ScalarProperty Name="CONFIG_MARKET" ColumnName="CONFIG MARKET" />
+          <ScalarProperty Name="GROUP" ColumnName="GROUP" />
+          <ScalarProperty Name="CHANNEL" ColumnName="CHANNEL" />
+          <ScalarProperty Name="MARKET" ColumnName="MARKET" />
+          <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ROW_ID" ColumnName="ROW_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

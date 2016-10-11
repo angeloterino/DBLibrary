@@ -64,6 +64,8 @@ namespace StrawmanDBLibray.Classes
         public const string v_SHAREBOARD_YTD = "v_SHAREBOARD_YTD";
         public const string v_SHAREBOARD_MONTH = "v_SHAREBOARD_MONTH";
 
+        public const string v_KEYBRANDS_MASTER = "v_KEYBRANDS_MASTER";
+
         public const string v_WRK_MANAGEMENT_LETTERS_DATA = "v_WRK_MANAGEMENT_LETTERS_DATA";
     }
 

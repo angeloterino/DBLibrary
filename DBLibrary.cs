@@ -247,6 +247,18 @@ namespace StrawmanDBLibray
             return tmp;
         }
 
+        public static object GetKeybrandsData(string view)
+        {
+            using (Entities.godzillaDBLibraryEntity db = new Entities.godzillaDBLibraryEntity(Classes.Secrets.CONN_STRING))
+            {
+                switch (view)
+                {
+                    default:
+                        return db.v_KEYBRANDS_MASTER.ToList();
+                }
+            }
+        }
+        
         public static object GetShareBoardData(string view)
         {
             object tmp = null;

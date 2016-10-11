@@ -485,6 +485,7 @@
     <EntitySet Name="v_WRK_FRANCHISE_CUSTOM_DATA" EntityType="godzillaDBLibraryModel.v_WRK_FRANCHISE_CUSTOM_DATA" />
     <EntitySet Name="v_WRK_MANAGEMENT_LETTERS_DATA" EntityType="godzillaDBLibraryModel.v_WRK_MANAGEMENT_LETTERS_DATA" />
     <EntitySet Name="v_WRK_MONTHLY_COMMENTS_DATA" EntityType="godzillaDBLibraryModel.v_WRK_MONTHLY_COMMENTS_DATA" />
+    <EntitySet Name="v_KEYBRANDS_MASTER" EntityType="godzillaDBLibraryModel.v_KEYBRANDS_MASTER" />
   </EntityContainer>
   <EntityType Name="WRK_BOY_BASIC_DATA">
     <Key>
@@ -2362,5 +2363,19 @@
     <Property Name="YTD_PT" Type="Decimal" Precision="38" Scale="6" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="v_KEYBRANDS_MASTER">
+    <Key>
+      <PropertyRef Name="ROW_ID" />
+    </Key>
+    <Property Type="Int64" Name="ROW_ID" Nullable="false" />
+    <Property Type="Decimal" Name="ID" Precision="18" Scale="0" />
+    <Property Type="String" Name="NAME" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="BRAND" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="MARKET" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CHANNEL" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="GROUP" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CONFIG_MARKET" Precision="1" Scale="0" />
+    <Property Type="Decimal" Name="CONFIG_BRAND" Precision="1" Scale="0" />
   </EntityType>
 </Schema>
