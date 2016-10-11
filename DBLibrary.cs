@@ -453,21 +453,28 @@ namespace StrawmanDBLibray
             int ret = -1;
             using(Entities.godzillaDBLibraryEntity db = new Entities.godzillaDBLibraryEntity(Classes.Secrets.CONN_STRING))
             {
-               
-                var _rel = db.MANAGEMENT_LETTERS_REL.Where(m => m.ID == rel.ID).FirstOrDefault();
-                if (_rel == null)
+                if (master != null)
                 {
-                    db.MANAGEMENT_LETTERS_REL.AddObject(rel);
-                    _rel = rel;
+                    var _rel = db.MANAGEMENT_LETTERS_REL.Where(m => m.ID == rel.ID).FirstOrDefault();
+                    if (_rel == null)
+                    {
+                        db.MANAGEMENT_LETTERS_REL.AddObject(rel);
+                        _rel = rel;
+                    }
+                    if (_rel.MANAGEMENT_LETTER_ID == 0)
+                    {
+                        db.MANAGEMENT_LETTERS_MASTER.AddObject(master);
+                        db.SaveChanges();
+                        _rel.MANAGEMENT_LETTER_ID = master.ID;
+                    }
+                    var _master = db.MANAGEMENT_LETTERS_MASTER.Where(m => m.ID == _rel.MANAGEMENT_LETTER_ID).FirstOrDefault();
+                    _master.LETTERS_COMMENT_DATA.Add(letter);
                 }
-                if (_rel.MANAGEMENT_LETTER_ID == 0)
+                else
                 {
-                    db.MANAGEMENT_LETTERS_MASTER.AddObject(master);
-                    db.SaveChanges();
-                    _rel.MANAGEMENT_LETTER_ID = master.ID;
+                    db.LETTERS_COMMENT_DATA.AddObject(letter);
                 }
-                var _master = db.MANAGEMENT_LETTERS_MASTER.Where(m => m.ID == _rel.MANAGEMENT_LETTER_ID).FirstOrDefault();
-                _master.LETTERS_COMMENT_DATA.Add(letter);
+
                 db.SaveChanges();
                 ret = 1;
             }
@@ -480,6 +487,7 @@ namespace StrawmanDBLibray
             int ret = -1;
             using (Entities.godzillaDBLibraryEntity db = new Entities.godzillaDBLibraryEntity(Classes.Secrets.CONN_STRING))
             {
+                db.LETTERS_COMMENT_DATA.Context.AcceptAllChanges();
                 bool save = false;
                 switch (table)
                 {
@@ -512,6 +520,42 @@ namespace StrawmanDBLibray
                         break;
                 }
                 if (save)
+                {
+                    db.SaveChanges();
+                    ret = 1;
+                }
+            }
+            return ret;
+        }
+
+        public static int RemoveComment(string table, object obj)
+        {
+            int ret = -1;
+            using (Entities.godzillaDBLibraryEntity db = new Entities.godzillaDBLibraryEntity(Classes.Secrets.CONN_STRING))
+            {
+                db.LETTERS_COMMENT_DATA.Context.AcceptAllChanges();
+                bool deleted = false;
+                switch (table)
+                {
+                    case Classes.StrawmanDataTables.LETTERS_COMMENT_DATA:
+                        Entities.LETTERS_COMMENT_DATA obj_letter = (Entities.LETTERS_COMMENT_DATA)obj;
+                        Entities.LETTERS_COMMENT_DATA letter = db.LETTERS_COMMENT_DATA.Where(m => m.ID == obj_letter.ID).FirstOrDefault();
+                        if (letter != null)
+                        {
+                            db.LETTERS_COMMENT_DATA.DeleteObject(letter);
+                        }
+                        deleted = true;
+                        break;
+
+                    case Classes.StrawmanDataTables.MANAGEMENT_LETTERS_REL:
+                        Entities.MANAGEMENT_LETTERS_REL obj_rel = (Entities.MANAGEMENT_LETTERS_REL)obj;
+                        Entities.MANAGEMENT_LETTERS_REL rel = db.MANAGEMENT_LETTERS_REL.Where(m => m.ID == obj_rel.ID).FirstOrDefault();
+                        if (rel != null)
+                            db.MANAGEMENT_LETTERS_REL.DeleteObject(rel);
+                        deleted = true;
+                        break;
+                }
+                if (deleted)
                 {
                     db.SaveChanges();
                     ret = 1;
