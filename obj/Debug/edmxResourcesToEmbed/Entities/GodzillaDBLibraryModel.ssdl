@@ -2,7 +2,10 @@
 <Schema Namespace="godzillaDBLibraryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="godzillaDBLibraryModelStoreContainer">
     <EntitySet Name="BOY_CONFIG" EntityType="godzillaDBLibraryModel.Store.BOY_CONFIG" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BRAND_CONTRIBUTION" EntityType="godzillaDBLibraryModel.Store.BRAND_CONTRIBUTION" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BRAND_MASTER" EntityType="godzillaDBLibraryModel.Store.BRAND_MASTER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CALCS_BRANDS_CONFIG" EntityType="godzillaDBLibraryModel.Store.CALCS_BRANDS_CONFIG" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CALCS_MARKETS_CONFIG" EntityType="godzillaDBLibraryModel.Store.CALCS_MARKETS_CONFIG" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CHANNEL_MASTER" EntityType="godzillaDBLibraryModel.Store.CHANNEL_MASTER" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="GROUP_CONFIG" EntityType="godzillaDBLibraryModel.Store.GROUP_CONFIG" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="GROUP_MASTER" EntityType="godzillaDBLibraryModel.Store.GROUP_MASTER" store:Type="Tables" Schema="dbo" />
@@ -11,16 +14,21 @@
     <EntitySet Name="KPI_MASTER" EntityType="godzillaDBLibraryModel.Store.KPI_MASTER" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="LETTERS_COMMENT_DATA" EntityType="godzillaDBLibraryModel.Store.LETTERS_COMMENT_DATA" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MANAGEMENT_LETTERS_MASTER" EntityType="godzillaDBLibraryModel.Store.MANAGEMENT_LETTERS_MASTER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MANAGEMENT_LETTERS_MASTER_REL" EntityType="godzillaDBLibraryModel.Store.MANAGEMENT_LETTERS_MASTER_REL" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MANAGEMENT_LETTERS_REL" EntityType="godzillaDBLibraryModel.Store.MANAGEMENT_LETTERS_REL" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MARKET_GROUPS" EntityType="godzillaDBLibraryModel.Store.MARKET_GROUPS" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MARKET_MASTER" EntityType="godzillaDBLibraryModel.Store.MARKET_MASTER" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MENU_CONFIG" EntityType="godzillaDBLibraryModel.Store.MENU_CONFIG" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MENU_MASTER" EntityType="godzillaDBLibraryModel.Store.MENU_MASTER" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="NTS_MASTER" EntityType="godzillaDBLibraryModel.Store.NTS_MASTER" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ROSETTA_LOADER" EntityType="godzillaDBLibraryModel.Store.ROSETTA_LOADER" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ROSETTA_STONE" EntityType="godzillaDBLibraryModel.Store.ROSETTA_STONE" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="STRWM_BOY_DATA" EntityType="godzillaDBLibraryModel.Store.STRWM_BOY_DATA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STRWM_BRAND_DATA" EntityType="godzillaDBLibraryModel.Store.STRWM_BRAND_DATA" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="STRWM_BRAND_DATA_BCK" EntityType="godzillaDBLibraryModel.Store.STRWM_BRAND_DATA_BCK" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STRWM_MARKET_DATA" EntityType="godzillaDBLibraryModel.Store.STRWM_MARKET_DATA" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="STRWM_MARKET_DATA_BCK" EntityType="godzillaDBLibraryModel.Store.STRWM_MARKET_DATA_BCK" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STRWM_NTS_DATA" EntityType="godzillaDBLibraryModel.Store.STRWM_NTS_DATA" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="STRWM_NTS_DATA_BCK" EntityType="godzillaDBLibraryModel.Store.STRWM_NTS_DATA_BCK" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TMP_NTS_DATA" EntityType="godzillaDBLibraryModel.Store.TMP_NTS_DATA" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="USER_ROLE_TYPES" EntityType="godzillaDBLibraryModel.Store.USER_ROLE_TYPES" store:Type="Tables" Schema="dbo" />
@@ -173,15 +181,17 @@
       [v_STRWM_MARKET_DATA].[ID] AS [ID], 
       [v_STRWM_MARKET_DATA].[CHANNEL] AS [CHANNEL], 
       [v_STRWM_MARKET_DATA].[ORDER] AS [ORDER], 
-      [v_STRWM_MARKET_DATA].[GROUP] AS [GROUP], 
+      [v_STRWM_MARKET_DATA].[GROUP ORDER] AS [GROUP ORDER], 
       [v_STRWM_MARKET_DATA].[MARKET] AS [MARKET], 
       [v_STRWM_MARKET_DATA].[BRAND] AS [BRAND], 
+      [v_STRWM_MARKET_DATA].[GROUP] AS [GROUP], 
       [v_STRWM_MARKET_DATA].[BRAND_NAME] AS [BRAND_NAME], 
       [v_STRWM_MARKET_DATA].[NAME] AS [NAME], 
       [v_STRWM_MARKET_DATA].[DATA] AS [DATA], 
       [v_STRWM_MARKET_DATA].[SOURCE] AS [SOURCE], 
       [v_STRWM_MARKET_DATA].[YEAR PERIOD] AS [YEAR PERIOD], 
-      [v_STRWM_MARKET_DATA].[MONTH PERIOD] AS [MONTH PERIOD]
+      [v_STRWM_MARKET_DATA].[MONTH PERIOD] AS [MONTH PERIOD], 
+      [v_STRWM_MARKET_DATA].[STATUS] AS [STATUS]
       FROM [dbo].[v_STRWM_MARKET_DATA] AS [v_STRWM_MARKET_DATA]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="v_TMP_MASTER_DATA" EntityType="godzillaDBLibraryModel.Store.v_TMP_MASTER_DATA" store:Type="Views" store:Schema="dbo" store:Name="v_TMP_MASTER_DATA">
@@ -782,6 +792,20 @@
       [v_WRK_FRANCHISE_MASTER].[TYPE] AS [TYPE]
       FROM [dbo].[v_WRK_FRANCHISE_MASTER] AS [v_WRK_FRANCHISE_MASTER]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="v_WRK_MANAGEMENT_LETTERS" EntityType="godzillaDBLibraryModel.Store.v_WRK_MANAGEMENT_LETTERS" store:Type="Views" store:Schema="dbo" store:Name="v_WRK_MANAGEMENT_LETTERS">
+      <DefiningQuery>SELECT 
+      [v_WRK_MANAGEMENT_LETTERS].[ID] AS [ID], 
+      [v_WRK_MANAGEMENT_LETTERS].[GROUP ID] AS [GROUP ID], 
+      [v_WRK_MANAGEMENT_LETTERS].[NAME] AS [NAME], 
+      [v_WRK_MANAGEMENT_LETTERS].[COUNTRY] AS [COUNTRY], 
+      [v_WRK_MANAGEMENT_LETTERS].[MAIN NAME] AS [MAIN NAME], 
+      [v_WRK_MANAGEMENT_LETTERS].[MAIN GROUP] AS [MAIN GROUP], 
+      [v_WRK_MANAGEMENT_LETTERS].[BRAND] AS [BRAND], 
+      [v_WRK_MANAGEMENT_LETTERS].[MARKET] AS [MARKET], 
+      [v_WRK_MANAGEMENT_LETTERS].[CHANNEL] AS [CHANNEL], 
+      [v_WRK_MANAGEMENT_LETTERS].[GROUP] AS [GROUP]
+      FROM [dbo].[v_WRK_MANAGEMENT_LETTERS] AS [v_WRK_MANAGEMENT_LETTERS]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="v_WRK_MANAGEMENT_LETTERS_DATA" EntityType="godzillaDBLibraryModel.Store.v_WRK_MANAGEMENT_LETTERS_DATA" store:Type="Views" store:Schema="dbo" store:Name="v_WRK_MANAGEMENT_LETTERS_DATA">
       <DefiningQuery>SELECT 
       [v_WRK_MANAGEMENT_LETTERS_DATA].[ID] AS [ID], 
@@ -977,6 +1001,10 @@
       [v_WRK_NTS_DATA_KEYBRANDS].[TYPE] AS [TYPE]
       FROM [dbo].[v_WRK_NTS_DATA_KEYBRANDS] AS [v_WRK_NTS_DATA_KEYBRANDS]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_BRAND_CONTRIBUTION_KPI_MASTER" Association="godzillaDBLibraryModel.Store.FK_BRAND_CONTRIBUTION_KPI_MASTER">
+      <End Role="KPI_MASTER" EntitySet="KPI_MASTER" />
+      <End Role="BRAND_CONTRIBUTION" EntitySet="BRAND_CONTRIBUTION" />
+    </AssociationSet>
     <AssociationSet Name="FK_BRAND_MASTER_MARKET_MASTER" Association="godzillaDBLibraryModel.Store.FK_BRAND_MASTER_MARKET_MASTER">
       <End Role="MARKET_MASTER" EntitySet="MARKET_MASTER" />
       <End Role="BRAND_MASTER" EntitySet="BRAND_MASTER" />
@@ -988,14 +1016,6 @@
     <AssociationSet Name="FK_GROUP_MASTER_GROUP_TYPES" Association="godzillaDBLibraryModel.Store.FK_GROUP_MASTER_GROUP_TYPES">
       <End Role="GROUP_TYPES" EntitySet="GROUP_TYPES" />
       <End Role="GROUP_MASTER" EntitySet="GROUP_MASTER" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LETTERS_COMMENT_DATA_MANAGEMENT_LETTERS_MASTER" Association="godzillaDBLibraryModel.Store.FK_LETTERS_COMMENT_DATA_MANAGEMENT_LETTERS_MASTER">
-      <End Role="MANAGEMENT_LETTERS_MASTER" EntitySet="MANAGEMENT_LETTERS_MASTER" />
-      <End Role="LETTERS_COMMENT_DATA" EntitySet="LETTERS_COMMENT_DATA" />
-    </AssociationSet>
-    <AssociationSet Name="FK_MANAGEMENT_LETTERS_REL_MANAGEMENT_LETTERS_MASTER" Association="godzillaDBLibraryModel.Store.FK_MANAGEMENT_LETTERS_REL_MANAGEMENT_LETTERS_MASTER">
-      <End Role="MANAGEMENT_LETTERS_MASTER" EntitySet="MANAGEMENT_LETTERS_MASTER" />
-      <End Role="MANAGEMENT_LETTERS_REL" EntitySet="MANAGEMENT_LETTERS_REL" />
     </AssociationSet>
     <AssociationSet Name="FK_ROSETTA_LOADER_BRAND_MASTER" Association="godzillaDBLibraryModel.Store.FK_ROSETTA_LOADER_BRAND_MASTER">
       <End Role="BRAND_MASTER" EntitySet="BRAND_MASTER" />
@@ -1012,6 +1032,26 @@
     <AssociationSet Name="FK_STRWM_BOY_DATA_MARKET_MASTER" Association="godzillaDBLibraryModel.Store.FK_STRWM_BOY_DATA_MARKET_MASTER">
       <End Role="MARKET_MASTER" EntitySet="MARKET_MASTER" />
       <End Role="STRWM_BOY_DATA" EntitySet="STRWM_BOY_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_BRAND_DATA_BRAND_MASTER" Association="godzillaDBLibraryModel.Store.FK_STRWM_BRAND_DATA_BRAND_MASTER">
+      <End Role="BRAND_MASTER" EntitySet="BRAND_MASTER" />
+      <End Role="STRWM_BRAND_DATA" EntitySet="STRWM_BRAND_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_BRAND_DATA_MARKET_MASTER" Association="godzillaDBLibraryModel.Store.FK_STRWM_BRAND_DATA_MARKET_MASTER">
+      <End Role="MARKET_MASTER" EntitySet="MARKET_MASTER" />
+      <End Role="STRWM_BRAND_DATA" EntitySet="STRWM_BRAND_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_MARKET_DATA_MARKET_MASTER" Association="godzillaDBLibraryModel.Store.FK_STRWM_MARKET_DATA_MARKET_MASTER">
+      <End Role="MARKET_MASTER" EntitySet="MARKET_MASTER" />
+      <End Role="STRWM_MARKET_DATA" EntitySet="STRWM_MARKET_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_NTS_DATA_BRAND_MASTER" Association="godzillaDBLibraryModel.Store.FK_STRWM_NTS_DATA_BRAND_MASTER">
+      <End Role="BRAND_MASTER" EntitySet="BRAND_MASTER" />
+      <End Role="STRWM_NTS_DATA" EntitySet="STRWM_NTS_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_NTS_DATA_MARKET_MASTER" Association="godzillaDBLibraryModel.Store.FK_STRWM_NTS_DATA_MARKET_MASTER">
+      <End Role="MARKET_MASTER" EntitySet="MARKET_MASTER" />
+      <End Role="STRWM_NTS_DATA" EntitySet="STRWM_NTS_DATA" />
     </AssociationSet>
     <AssociationSet Name="FK_USERS_PERMISSIONS_USERS_ROLES" Association="godzillaDBLibraryModel.Store.FK_USERS_PERMISSIONS_USERS_ROLES">
       <End Role="USERS_ROLES" EntitySet="USERS_ROLES" />
@@ -1037,6 +1077,18 @@
     <Property Name="SELLIN_CONFIG" Type="numeric" Precision="1" />
     <Property Name="CONSOLIDATE" Type="numeric" Precision="1" />
   </EntityType>
+  <EntityType Name="BRAND_CONTRIBUTION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="KPI_ID" Type="numeric" Nullable="false" />
+    <Property Name="COL1" Type="decimal" />
+    <Property Name="COL2" Type="decimal" />
+    <Property Name="COL3" Type="decimal" />
+    <Property Name="YEAR PERIOD" Type="numeric" />
+    <Property Name="MONTH PERIOD" Type="numeric" />
+  </EntityType>
   <EntityType Name="BRAND_MASTER">
     <Key>
       <PropertyRef Name="ID" />
@@ -1052,6 +1104,40 @@
     <Property Name="SUPER_CALC" Type="numeric" Precision="1" />
     <Property Name="BRAND_CALC" Type="numeric" Precision="1" />
     <Property Name="KEYBRANDS" Type="numeric" />
+  </EntityType>
+  <EntityType Name="CALCS_BRANDS_CONFIG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MARKET" Type="numeric" Nullable="false" />
+    <Property Name="BRAND" Type="numeric" Nullable="false" />
+    <Property Name="FRANCHISECFG" Type="numeric" Precision="1" />
+    <Property Name="KEYBRANDSCFG" Type="numeric" Precision="1" />
+    <Property Name="BRANDSCFG" Type="numeric" Precision="1" />
+    <Property Name="GROUPCFG" Type="numeric" Precision="1" />
+    <Property Name="CHANNELCFG" Type="numeric" Precision="1" />
+    <Property Name="SUPERCFG" Type="numeric" Precision="1" />
+    <Property Name="FRANCHISE" Type="numeric" />
+    <Property Name="KEYBRAND" Type="numeric" />
+    <Property Name="SELLINSELLOUTCFG" Type="numeric" Precision="1" />
+  </EntityType>
+  <EntityType Name="CALCS_MARKETS_CONFIG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MARKET" Type="numeric" Nullable="false" />
+    <Property Name="BRAND" Type="numeric" Nullable="false" />
+    <Property Name="FRANCHISECFG" Type="numeric" Precision="1" />
+    <Property Name="KEYBRANDSCFG" Type="numeric" Precision="1" />
+    <Property Name="BRANDSCFG" Type="numeric" Precision="1" />
+    <Property Name="GROUPCFG" Type="numeric" Precision="1" />
+    <Property Name="CHANNELCFG" Type="numeric" Precision="1" />
+    <Property Name="FRANCHISE" Type="numeric" />
+    <Property Name="SUPERCFG" Type="numeric" Precision="1" />
+    <Property Name="KEYBRAND" Type="numeric" />
+    <Property Name="SELLINSELLOUTCFG" Type="numeric" />
   </EntityType>
   <EntityType Name="CHANNEL_MASTER">
     <Key>
@@ -1140,6 +1226,17 @@
     <Property Name="CHANNEL GROUP" Type="numeric" />
     <Property Name="COUNTRY" Type="nvarchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="MANAGEMENT_LETTERS_MASTER_REL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MASTER_ID" Type="numeric" Nullable="false" />
+    <Property Name="MARKET" Type="numeric" />
+    <Property Name="BRAND" Type="numeric" />
+    <Property Name="CHANNEL" Type="numeric" />
+    <Property Name="GROUP" Type="numeric" />
+  </EntityType>
   <EntityType Name="MANAGEMENT_LETTERS_REL">
     <Key>
       <PropertyRef Name="ID" />
@@ -1158,6 +1255,8 @@
     <Property Name="NAME" Type="varchar" MaxLength="255" />
     <Property Name="SUPER" Type="numeric" />
     <Property Name="SUPER_CALC" Type="numeric" Precision="1" />
+    <Property Name="ORDER" Type="numeric" />
+    <Property Name="CHANNEL" Type="numeric" />
   </EntityType>
   <EntityType Name="MARKET_MASTER">
     <Key>
@@ -1192,6 +1291,25 @@
     <Property Name="STATUS" Type="nvarchar" MaxLength="1" />
     <Property Name="DISABLED" Type="nvarchar" MaxLength="1" />
     <Property Name="DIVIDER BEFORE" Type="nvarchar" MaxLength="255" />
+    <Property Name="CURRENCY" Type="nvarchar" MaxLength="1" />
+    <Property Name="CURRENCY ADJUST" Type="nvarchar" MaxLength="1" />
+    <Property Name="PERIOD" Type="nvarchar" MaxLength="1" />
+    <Property Name="WC" Type="nvarchar" MaxLength="1" />
+    <Property Name="PC ADJUST" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="NTS_MASTER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Mat Local Class 2" Type="varchar" MaxLength="50" />
+    <Property Name="Mat Local Class 3" Type="varchar" MaxLength="50" />
+    <Property Name="Mat Local Class 4" Type="varchar" MaxLength="50" />
+    <Property Name="MARKET_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="STRAWMAN_CHECK" Type="varchar" MaxLength="50" />
+    <Property Name="CHANNEL" Type="varchar" MaxLength="50" />
+    <Property Name="MARKET" Type="varchar" MaxLength="50" />
+    <Property Name="BRAND" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="ROSETTA_LOADER">
     <Key>
@@ -1248,6 +1366,29 @@
     <Property Name="USER" Type="nvarchar" MaxLength="255" />
     <Property Name="LAST DATE" Type="datetime" />
   </EntityType>
+  <EntityType Name="STRWM_BRAND_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DATA" Type="nvarchar" MaxLength="255" />
+    <Property Name="SOURCE" Type="nvarchar" MaxLength="255" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
+    <Property Name="MARKET" Type="numeric" />
+    <Property Name="BRAND" Type="numeric" />
+    <Property Name="GROUP" Type="numeric" />
+    <Property Name="YEAR PERIOD" Type="numeric" />
+    <Property Name="MONTH PERIOD" Type="numeric" />
+    <Property Name="TOTAL" Type="numeric" Scale="2" />
+    <Property Name="MONTH" Type="numeric" Scale="2" />
+    <Property Name="YTD" Type="numeric" Scale="2" />
+    <Property Name="MAT" Type="numeric" Scale="2" />
+    <Property Name="WC" Type="nvarchar" MaxLength="255" />
+    <Property Name="SB" Type="nvarchar" MaxLength="255" />
+    <Property Name="TRANSACTION_ID" Type="numeric" />
+    <Property Name="USER" Type="nvarchar" MaxLength="255" />
+    <Property Name="LAST DATE" Type="datetime" />
+  </EntityType>
   <EntityType Name="STRWM_BRAND_DATA_BCK">
     <Key>
       <PropertyRef Name="ID" />
@@ -1258,6 +1399,28 @@
     <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
     <Property Name="MARKET" Type="numeric" />
     <Property Name="BRAND" Type="numeric" />
+    <Property Name="GROUP" Type="numeric" />
+    <Property Name="YEAR PERIOD" Type="numeric" />
+    <Property Name="MONTH PERIOD" Type="numeric" />
+    <Property Name="TOTAL" Type="numeric" Scale="2" />
+    <Property Name="MONTH" Type="numeric" Scale="2" />
+    <Property Name="YTD" Type="numeric" Scale="2" />
+    <Property Name="MAT" Type="numeric" Scale="2" />
+    <Property Name="WC" Type="nvarchar" MaxLength="255" />
+    <Property Name="SB" Type="nvarchar" MaxLength="255" />
+    <Property Name="TRANSACTION_ID" Type="numeric" />
+    <Property Name="USER" Type="nvarchar" MaxLength="255" />
+    <Property Name="LAST DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="STRWM_MARKET_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DATA" Type="nvarchar" MaxLength="255" />
+    <Property Name="SOURCE" Type="nvarchar" MaxLength="255" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="255" />
+    <Property Name="MARKET" Type="numeric" />
     <Property Name="GROUP" Type="numeric" />
     <Property Name="YEAR PERIOD" Type="numeric" />
     <Property Name="MONTH PERIOD" Type="numeric" />
@@ -1290,6 +1453,31 @@
     <Property Name="WC" Type="nvarchar" MaxLength="255" />
     <Property Name="SB" Type="nvarchar" MaxLength="255" />
     <Property Name="TRANSACTION_ID" Type="numeric" />
+    <Property Name="USER" Type="nvarchar" MaxLength="255" />
+    <Property Name="LAST DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="STRWM_NTS_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CHANNEL" Type="numeric" Nullable="false" />
+    <Property Name="MARKET" Type="numeric" Nullable="false" />
+    <Property Name="BRAND" Type="numeric" Nullable="false" />
+    <Property Name="NTS CFG" Type="numeric" Nullable="false" />
+    <Property Name="MONTH_AMOUNT_ACTUAL" Type="decimal" Scale="10" />
+    <Property Name="MONTH_AMOUNT_FBP" Type="decimal" Scale="10" />
+    <Property Name="MONTH_AMOUNT_PY" Type="decimal" Scale="10" />
+    <Property Name="MONTH_CHANGE_FBP" Type="decimal" Scale="10" />
+    <Property Name="MONTH_CHANGE_PY" Type="decimal" Scale="10" />
+    <Property Name="YTD_AMOUNT_ACTUAL" Type="decimal" Scale="10" />
+    <Property Name="YTD_AMOUNT_FBP" Type="decimal" Scale="10" />
+    <Property Name="YTD_AMOUNT_PY" Type="decimal" Scale="10" />
+    <Property Name="YTD_CHANGE_FBP" Type="decimal" Scale="10" />
+    <Property Name="YTD_CHANGE_PY" Type="decimal" Scale="10" />
+    <Property Name="TRANSACTION_ID" Type="numeric" />
+    <Property Name="YEAR PERIOD" Type="numeric" />
+    <Property Name="MONTH PERIOD" Type="numeric" />
     <Property Name="USER" Type="nvarchar" MaxLength="255" />
     <Property Name="LAST DATE" Type="datetime" />
   </EntityType>
@@ -2192,8 +2380,8 @@
     <Property Name="BRAND LAST YEAR" Type="numeric" Precision="38" />
     <Property Name="MARKET SHARE" Type="decimal" Scale="2" />
     <Property Name="PT PLUS MINUS" Type="decimal" Precision="19" Scale="2" />
-    <Property Name="MARKET SIZE" Type="numeric" Precision="38" Scale="6" />
-    <Property Name="BRAND SIZE" Type="numeric" Precision="38" Scale="6" />
+    <Property Name="MARKET SIZE" Type="numeric" Precision="38" />
+    <Property Name="BRAND SIZE" Type="numeric" Precision="38" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="9" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
@@ -2220,8 +2408,8 @@
     <Property Name="BRAND LAST YEAR" Type="numeric" Precision="38" />
     <Property Name="MARKET SHARE" Type="decimal" Scale="2" />
     <Property Name="PT PLUS MINUS" Type="decimal" Precision="19" Scale="2" />
-    <Property Name="MARKET SIZE" Type="numeric" Precision="38" Scale="6" />
-    <Property Name="BRAND SIZE" Type="numeric" Precision="38" Scale="6" />
+    <Property Name="MARKET SIZE" Type="numeric" Precision="38" />
+    <Property Name="BRAND SIZE" Type="numeric" Precision="38" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="9" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
@@ -2236,15 +2424,17 @@
     <Property Name="ID" Type="bigint" Nullable="false" />
     <Property Name="CHANNEL" Type="numeric" />
     <Property Name="ORDER" Type="numeric" Precision="19" />
-    <Property Name="GROUP" Type="numeric" />
+    <Property Name="GROUP ORDER" Type="numeric" />
     <Property Name="MARKET" Type="numeric" Precision="19" />
     <Property Name="BRAND" Type="numeric" Precision="19" />
+    <Property Name="GROUP" Type="numeric" />
     <Property Name="BRAND_NAME" Type="nvarchar" MaxLength="255" />
     <Property Name="NAME" Type="nvarchar" MaxLength="261" />
     <Property Name="DATA" Type="nvarchar" MaxLength="255" />
     <Property Name="SOURCE" Type="nvarchar" MaxLength="255" />
     <Property Name="YEAR PERIOD" Type="numeric" />
     <Property Name="MONTH PERIOD" Type="numeric" />
+    <Property Name="STATUS" Type="nvarchar" Nullable="false" MaxLength="1" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
       advertencia 6002: La tabla o vista 'godzilla.dbo.v_TMP_MASTER_DATA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
@@ -2736,7 +2926,7 @@
     <Property Name="BRAND" Type="numeric" Precision="19" />
     <Property Name="BTG COL1" Type="numeric" Precision="38" />
     <Property Name="BTG COL2" Type="float" />
-    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="2" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="10" />
@@ -2756,7 +2946,7 @@
     <Property Name="BRAND" Type="numeric" Precision="19" />
     <Property Name="MAT COL1" Type="numeric" Precision="38" />
     <Property Name="MAT COL2" Type="float" />
-    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="2" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="10" />
@@ -2776,7 +2966,7 @@
     <Property Name="BRAND" Type="numeric" Precision="19" />
     <Property Name="MONTH COL1" Type="numeric" Precision="38" />
     <Property Name="MONTH COL2" Type="numeric" Precision="38" />
-    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="2" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="10" />
@@ -2846,7 +3036,7 @@
     <Property Name="BRAND" Type="numeric" Precision="19" />
     <Property Name="YTD COL1" Type="numeric" Precision="38" />
     <Property Name="YTD COL2" Type="numeric" Precision="38" />
-    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="2" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="10" />
@@ -2986,6 +3176,24 @@
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="6" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'godzilla.dbo.v_WRK_MANAGEMENT_LETTERS' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="v_WRK_MANAGEMENT_LETTERS">
+    <Key>
+      <PropertyRef Name="GROUP ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" />
+    <Property Name="GROUP ID" Type="numeric" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="COUNTRY" Type="nvarchar" MaxLength="255" />
+    <Property Name="MAIN NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="MAIN GROUP" Type="numeric" />
+    <Property Name="BRAND" Type="numeric" />
+    <Property Name="MARKET" Type="numeric" />
+    <Property Name="CHANNEL" Type="numeric" />
+    <Property Name="GROUP" Type="numeric" />
+  </EntityType>
+  <!--Se encontraron errores durante la generación:
       advertencia 6002: La tabla o vista 'godzilla.dbo.v_WRK_MANAGEMENT_LETTERS_DATA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="v_WRK_MANAGEMENT_LETTERS_DATA">
@@ -3042,7 +3250,7 @@
     <Property Name="BRAND" Type="numeric" Precision="19" />
     <Property Name="BTG COL1" Type="numeric" Precision="38" />
     <Property Name="BTG COL2" Type="float" />
-    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="2" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="10" />
@@ -3062,7 +3270,7 @@
     <Property Name="BRAND" Type="numeric" Precision="19" />
     <Property Name="MAT COL1" Type="numeric" Precision="38" />
     <Property Name="MAT COL2" Type="float" />
-    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="decimal" Precision="11" Scale="2" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="10" />
@@ -3082,7 +3290,7 @@
     <Property Name="BRAND" Type="numeric" Precision="19" />
     <Property Name="MONTH COL1" Type="numeric" Precision="38" />
     <Property Name="MONTH COL2" Type="numeric" Precision="38" />
-    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="decimal" Precision="10" Scale="2" />
     <Property Name="YEAR PERIOD" Type="numeric" Precision="19" />
     <Property Name="MONTH PERIOD" Type="numeric" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="10" />
@@ -3231,6 +3439,18 @@
     <Property Name="MONTH PERIOD" Type="numeric" Nullable="false" />
     <Property Name="TYPE" Type="varchar" Nullable="false" MaxLength="50" />
   </EntityType>
+  <Association Name="FK_BRAND_CONTRIBUTION_KPI_MASTER">
+    <End Role="KPI_MASTER" Type="godzillaDBLibraryModel.Store.KPI_MASTER" Multiplicity="1" />
+    <End Role="BRAND_CONTRIBUTION" Type="godzillaDBLibraryModel.Store.BRAND_CONTRIBUTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPI_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BRAND_CONTRIBUTION">
+        <PropertyRef Name="KPI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_BRAND_MASTER_MARKET_MASTER">
     <End Role="MARKET_MASTER" Type="godzillaDBLibraryModel.Store.MARKET_MASTER" Multiplicity="0..1" />
     <End Role="BRAND_MASTER" Type="godzillaDBLibraryModel.Store.BRAND_MASTER" Multiplicity="*" />
@@ -3264,30 +3484,6 @@
       </Principal>
       <Dependent Role="GROUP_MASTER">
         <PropertyRef Name="TYPE" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LETTERS_COMMENT_DATA_MANAGEMENT_LETTERS_MASTER">
-    <End Role="MANAGEMENT_LETTERS_MASTER" Type="godzillaDBLibraryModel.Store.MANAGEMENT_LETTERS_MASTER" Multiplicity="0..1" />
-    <End Role="LETTERS_COMMENT_DATA" Type="godzillaDBLibraryModel.Store.LETTERS_COMMENT_DATA" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MANAGEMENT_LETTERS_MASTER">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="LETTERS_COMMENT_DATA">
-        <PropertyRef Name="LETTER_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_MANAGEMENT_LETTERS_REL_MANAGEMENT_LETTERS_MASTER">
-    <End Role="MANAGEMENT_LETTERS_MASTER" Type="godzillaDBLibraryModel.Store.MANAGEMENT_LETTERS_MASTER" Multiplicity="1" />
-    <End Role="MANAGEMENT_LETTERS_REL" Type="godzillaDBLibraryModel.Store.MANAGEMENT_LETTERS_REL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MANAGEMENT_LETTERS_MASTER">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="MANAGEMENT_LETTERS_REL">
-        <PropertyRef Name="MANAGEMENT_LETTER_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -3339,6 +3535,66 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_STRWM_BRAND_DATA_BRAND_MASTER">
+    <End Role="BRAND_MASTER" Type="godzillaDBLibraryModel.Store.BRAND_MASTER" Multiplicity="0..1" />
+    <End Role="STRWM_BRAND_DATA" Type="godzillaDBLibraryModel.Store.STRWM_BRAND_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRAND_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_BRAND_DATA">
+        <PropertyRef Name="BRAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STRWM_BRAND_DATA_MARKET_MASTER">
+    <End Role="MARKET_MASTER" Type="godzillaDBLibraryModel.Store.MARKET_MASTER" Multiplicity="0..1" />
+    <End Role="STRWM_BRAND_DATA" Type="godzillaDBLibraryModel.Store.STRWM_BRAND_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARKET_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_BRAND_DATA">
+        <PropertyRef Name="MARKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STRWM_MARKET_DATA_MARKET_MASTER">
+    <End Role="MARKET_MASTER" Type="godzillaDBLibraryModel.Store.MARKET_MASTER" Multiplicity="0..1" />
+    <End Role="STRWM_MARKET_DATA" Type="godzillaDBLibraryModel.Store.STRWM_MARKET_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARKET_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_MARKET_DATA">
+        <PropertyRef Name="MARKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STRWM_NTS_DATA_BRAND_MASTER">
+    <End Role="BRAND_MASTER" Type="godzillaDBLibraryModel.Store.BRAND_MASTER" Multiplicity="1" />
+    <End Role="STRWM_NTS_DATA" Type="godzillaDBLibraryModel.Store.STRWM_NTS_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRAND_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_NTS_DATA">
+        <PropertyRef Name="BRAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STRWM_NTS_DATA_MARKET_MASTER">
+    <End Role="MARKET_MASTER" Type="godzillaDBLibraryModel.Store.MARKET_MASTER" Multiplicity="1" />
+    <End Role="STRWM_NTS_DATA" Type="godzillaDBLibraryModel.Store.STRWM_NTS_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARKET_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_NTS_DATA">
+        <PropertyRef Name="MARKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_USERS_PERMISSIONS_USERS_ROLES">
     <End Role="USERS_ROLES" Type="godzillaDBLibraryModel.Store.USERS_ROLES" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -3365,4 +3621,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'godzilla.dbo.NTS MASTER' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="NTS MASTER">
+        <Property Name="Mat Local Class 2" Type="varchar" MaxLength="50" />
+        <Property Name="Mat Local Class 3" Type="varchar" MaxLength="50" />
+        <Property Name="Mat Local Class 4" Type="varchar" MaxLength="50" />
+        <Property Name="MARKET_NAME" Type="varchar" MaxLength="50" />
+        <Property Name="STRAWMAN_CHECK" Type="varchar" MaxLength="50" />
+        <Property Name="CHANNEL" Type="varchar" MaxLength="50" />
+        <Property Name="MARKET" Type="varchar" MaxLength="50" />
+        <Property Name="BRAND" Type="varchar" MaxLength="50" />
+      </EntityType>-->
 </Schema>

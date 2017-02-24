@@ -26,15 +26,20 @@ namespace StrawmanDBLibray.Classes
         public const string MENU_MASTER = "MENU_MASTER";
         public const string MENU_CONFIG = "MENU_CONFIG";
         public const string BOY_CONFIG = "BOY_CONFIG";
+        public const string CALCS_MARKETS_CONFIG = "CALCS_MARKETS_CONFIG";
+        public const string CALCS_BRANDS_CONFIG = "CALCS_BRANDS_CONFIG";
 
         public const string CHANNEL_MASTER = "CHANNEL_MASTER";
         public const string MARKET_GROUPS = "MARKET_GROUPS";
         public const string MARKET_MASTER = "MARKET_MASTER";
         public const string BRAND_MASTER = "BRAND_MASTER";
+        public const string NTS_MASTER = "NTS_MASTER";
 
         public const string STRWM_NTS_DATA_BCK = "STRWM_NTS_DATA_BCK";
         public const string STRWM_MARKET_DATA_BCK = "STRWM_MARKET_DATA_BCK";
         public const string STRWM_BRAND_DATA_BCK = "STRWM_BRAND_DATA_BCK";
+
+        public const string STRWM_NTS_DATA = "STRWM_NTS_DATA";
 
         public const string WRK_MARKET_MONTH = "WRK_MARKET_MONTH";
         public const string WRK_MARKET_MAT = "WRK_MARKET_MAT";
@@ -58,6 +63,7 @@ namespace StrawmanDBLibray.Classes
 
         public const string MANAGEMENT_LETTERS_MASTER = "MANAGEMENT_LETTERS_MASTER";
         public const string MANAGEMENT_LETTERS_REL = "MANAGEMENT_LETTERS_REL";
+        public const string MANAGEMENT_LETTERS_MASTER_REL = "MANAGEMENT_LETTERS_MASTER_REL";
         public const string LETTERS_COMMENT_DATA = "LETTERS_COMMENT_DATA";
 
         public const string v_SHAREBOARD_MAT = "v_SHAREBOARD_MAT";
@@ -67,6 +73,10 @@ namespace StrawmanDBLibray.Classes
         public const string v_KEYBRANDS_MASTER = "v_KEYBRANDS_MASTER";
 
         public const string v_WRK_MANAGEMENT_LETTERS_DATA = "v_WRK_MANAGEMENT_LETTERS_DATA";
+        public const string v_WRK_MANAGEMENT_LETTERS = "v_WRK_MANAGEMENT_LETTERS";
+
+        public const string BRAND_CONTRIBUTION = "BRAND_CONTRIBUTION";
+        public const string KPI_MASTER = "KPI_MASTER";
     }
 
     public static partial class NTSTables

@@ -123,6 +123,21 @@
         <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MANAGEMENT_LETTERS_DATA" Width="1.5" PointX="15.375" PointY="34.75" />
         <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MONTHLY_COMMENTS_DATA" Width="1.5" PointX="34.375" PointY="18.75" />
         <EntityTypeShape EntityType="godzillaDBLibraryModel.v_KEYBRANDS_MASTER" Width="1.5" PointX="0.75" PointY="36.375" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.CALCS_BRANDS_CONFIG" Width="1.5" PointX="34.375" PointY="23.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.CALCS_MARKETS_CONFIG" Width="1.5" PointX="32.375" PointY="34.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.v_WRK_MANAGEMENT_LETTERS" Width="1.5" PointX="34.375" PointY="34.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.MANAGEMENT_LETTERS_MASTER_REL" Width="1.5" PointX="34.375" PointY="8.75" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.BRAND_CONTRIBUTION" Width="1.5" PointX="19.625" PointY="36.625" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_BRAND_CONTRIBUTION_KPI_MASTER1" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.STRWM_BRAND_DATA" Width="1.5" PointX="29.375" PointY="36.875" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.STRWM_MARKET_DATA" Width="1.5" PointX="13.125" PointY="8.5" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.STRWM_NTS_DATA" Width="1.5" PointX="26.375" PointY="36.625" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_STRWM_BRAND_DATA_BRAND_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_STRWM_NTS_DATA_BRAND_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_STRWM_BRAND_DATA_MARKET_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_STRWM_MARKET_DATA_MARKET_MASTER" />
+        <AssociationConnector Association="godzillaDBLibraryModel.FK_STRWM_NTS_DATA_MARKET_MASTER" />
+        <EntityTypeShape EntityType="godzillaDBLibraryModel.NTS_MASTER" Width="1.5" PointX="3.375" PointY="35.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

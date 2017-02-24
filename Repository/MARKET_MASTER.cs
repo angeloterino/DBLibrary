@@ -22,5 +22,32 @@ namespace StrawmanDBLibray.Repository
             return ((List<Entities.MARKET_MASTER>)DBLibrary.GetStrawmanConfig(Classes.StrawmanDataTables.MARKET_MASTER))
                 .Where(m => m.ID == id).FirstOrDefault();
         }
+        public static int Save(Entities.MARKET_MASTER item)
+        {
+            int ret = -1;
+            using(Entities.godzillaDBLibraryEntity db = new Entities.godzillaDBLibraryEntity(Classes.Secrets.CONN_STRING))
+            {
+                Entities.MARKET_MASTER itemtmp = db.MARKET_MASTER.Where(m => m.ID == item.ID).FirstOrDefault();
+                if (itemtmp != null)
+                {
+                    itemtmp.NAME = item.NAME != null?item.NAME:itemtmp.NAME;
+                    itemtmp.CHANNEL = item.CHANNEL != null ? item.CHANNEL : itemtmp.CHANNEL;
+                    itemtmp.GROUP = item.GROUP != null ? item.GROUP : itemtmp.GROUP;
+                    itemtmp.KEYBRANDS = item.KEYBRANDS != null ? item.KEYBRANDS : itemtmp.KEYBRANDS;
+                    itemtmp.FRANCHISE = item.FRANCHISE != null ? item.FRANCHISE : itemtmp.FRANCHISE;
+                    ret = 1;
+                }
+                else
+                {
+                    db.MARKET_MASTER.AddObject(item);
+                    ret = 1;
+                }
+                if (ret > 0)
+                {
+                    db.SaveChanges();
+                }
+            }
+            return ret;
+        }
     }
 }

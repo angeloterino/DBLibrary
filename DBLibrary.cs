@@ -282,7 +282,27 @@ namespace StrawmanDBLibray
         }
 
         #endregion
+        #region KPI
 
+        public static object GetKPIData(string type)
+        {
+            object tmp = null;
+            using (Entities.godzillaDBLibraryEntity db = new Entities.godzillaDBLibraryEntity(Classes.Secrets.CONN_STRING))
+            {
+                switch (type)
+                {
+                    case Classes.StrawmanDataTables.KPI_MASTER:
+                        tmp = db.KPI_MASTER.Select(m => m).ToList();
+                        break;
+                    case Classes.StrawmanDataTables.BRAND_CONTRIBUTION:
+                        tmp = db.BRAND_CONTRIBUTION.Select(m => m).ToList();
+                        break;
+                }
+            }
+            return tmp;
+        }
+
+        #endregion
         #region Config
         public static object GetStrawmanConfig(string type)
         {
@@ -335,6 +355,12 @@ namespace StrawmanDBLibray
                     case Classes.StrawmanDataTables.BOY_CONFIG:
                         tmp = db.BOY_CONFIG.Select(m => m).ToList();
                         break;
+                    case Classes.StrawmanDataTables.CALCS_MARKETS_CONFIG:
+                        tmp = db.CALCS_MARKETS_CONFIG.Select(m => m).ToList();
+                        break;
+                    case Classes.StrawmanDataTables.CALCS_BRANDS_CONFIG:
+                        tmp = db.CALCS_BRANDS_CONFIG.Select(m => m).ToList();
+                        break;
 
                 }
             }
@@ -370,14 +396,34 @@ namespace StrawmanDBLibray
                     case Classes.StrawmanDataTables.MANAGEMENT_LETTERS_REL:
                         ret = db.MANAGEMENT_LETTERS_REL.Select(m => m).ToList();
                         break;
+                    case Classes.StrawmanDataTables.MANAGEMENT_LETTERS_MASTER_REL:
+                        ret = db.MANAGEMENT_LETTERS_MASTER_REL.Select(m => m).ToList();
+                        break;
                     case Classes.StrawmanDataTables.LETTERS_COMMENT_DATA:
                         ret = db.LETTERS_COMMENT_DATA.Select(m => m).ToList();
                         break;
                     case Classes.StrawmanDataTables.v_WRK_MANAGEMENT_LETTERS_DATA:
                         ret = db.v_WRK_MANAGEMENT_LETTERS_DATA.Select(m => m).ToList();
                         break;
+                    case Classes.StrawmanDataTables.v_WRK_MANAGEMENT_LETTERS:
+                        ret = db.v_WRK_MANAGEMENT_LETTERS.Select(m => m).ToList();
+                        break;
                 }
             }
+            return ret;
+        }
+        public static object GetCommentsByMasterRelId(string id)
+        {
+            object ret = null;
+            int _id = int.Parse(id);
+            using (Entities.godzillaDBLibraryEntity db = new Entities.godzillaDBLibraryEntity(Classes.Secrets.CONN_STRING))
+            {
+                var mrel = db.MANAGEMENT_LETTERS_MASTER_REL.Where(m => m.MASTER_ID == _id).Select(m => m).AsEnumerable();
+                var rel = db.MANAGEMENT_LETTERS_REL.Join(mrel, m => new { _market = (decimal?)m.MARKET, _brand = (decimal?)m.BRAND, _channel = (decimal?)m.CHANNEL }, n => new { _market = n.MARKET, _brand = n.BRAND, _channel = n.CHANNEL}, (m, n) => new { m = m, n = n }).AsEnumerable();
+                if (rel.Count() == 0) return null;
+                ret = rel.Join(db.LETTERS_COMMENT_DATA, r => new { _id =(decimal?) r.m.MANAGEMENT_LETTER_ID }, l => new { _id = l.LETTER_ID }, (r, l) => new { l = l }).Select(l=>l.l).ToList();
+            }
+
             return ret;
         }
 
@@ -460,7 +506,7 @@ namespace StrawmanDBLibray
             return ret;
         }
 
-        public static int SaveComment(StrawmanDBLibray.Entities.LETTERS_COMMENT_DATA letter, Entities.MANAGEMENT_LETTERS_MASTER master, Entities.MANAGEMENT_LETTERS_REL rel)
+        public static int SaveComment(StrawmanDBLibray.Entities.LETTERS_COMMENT_DATA letter, Entities.MANAGEMENT_LETTERS_MASTER master, Entities.MANAGEMENT_LETTERS_REL rel, Entities.MANAGEMENT_LETTERS_MASTER_REL m_rel)
         {
             int ret = -1;
             using(Entities.godzillaDBLibraryEntity db = new Entities.godzillaDBLibraryEntity(Classes.Secrets.CONN_STRING))
@@ -473,18 +519,54 @@ namespace StrawmanDBLibray
                         db.MANAGEMENT_LETTERS_REL.AddObject(rel);
                         _rel = rel;
                     }
+                    var mst_lst = db.MANAGEMENT_LETTERS_MASTER_REL.Where(m => m.MASTER_ID == _rel.MANAGEMENT_LETTER_ID).ToList();
+                    var mst = mst_lst.Where(m => (m_rel.GROUP == null && m.BRAND == rel.BRAND && m.MARKET == rel.MARKET && m.CHANNEL == rel.CHANNEL) || (m.GROUP == m_rel.GROUP)).FirstOrDefault();
+                    if (mst != null)
+                    {
+                        master = db.MANAGEMENT_LETTERS_MASTER.Where(m => m.ID == mst.MASTER_ID).FirstOrDefault();
+                    }
+                    else
+                    {
+                        if (db.MANAGEMENT_LETTERS_MASTER.ToList().Exists(m => m.ID == _rel.MANAGEMENT_LETTER_ID))
+                        {
+                            master = db.MANAGEMENT_LETTERS_MASTER.Where(m => m.ID == _rel.MANAGEMENT_LETTER_ID).FirstOrDefault();
+                        }
+                        else
+                        {
+                            db.MANAGEMENT_LETTERS_MASTER.AddObject(master);
+                            db.SaveChanges();
+                        }
+                        db.MANAGEMENT_LETTERS_MASTER_REL.AddObject(new Entities.MANAGEMENT_LETTERS_MASTER_REL
+                        {
+                            BRAND = m_rel.BRAND,
+                            MARKET = m_rel.MARKET,
+                            CHANNEL = m_rel.CHANNEL,
+                            GROUP = m_rel.GROUP,
+                            MASTER_ID = master.ID
+                        });
+                    }
+
                     if (_rel.MANAGEMENT_LETTER_ID == 0)
                     {
-                        db.MANAGEMENT_LETTERS_MASTER.AddObject(master);
-                        db.SaveChanges();
                         _rel.MANAGEMENT_LETTER_ID = master.ID;
                     }
-                    var _master = db.MANAGEMENT_LETTERS_MASTER.Where(m => m.ID == _rel.MANAGEMENT_LETTER_ID).FirstOrDefault();
-                    _master.LETTERS_COMMENT_DATA.Add(letter);
+                    else
+                    {
+                        if (letter.LETTER_ID == null)
+                            letter.LETTER_ID = _rel.MANAGEMENT_LETTER_ID;
+                    }
+                    master.LETTERS_COMMENT_DATA.Add(letter);
                 }
                 else
                 {
                     db.LETTERS_COMMENT_DATA.AddObject(letter);
+                    db.SaveChanges();
+
+                    if (!db.MANAGEMENT_LETTERS_REL.ToList().Exists(m=>m.MANAGEMENT_LETTER_ID == letter.LETTER_ID))
+                    {
+                        rel.MANAGEMENT_LETTER_ID = (decimal)letter.LETTER_ID;
+                        db.MANAGEMENT_LETTERS_REL.AddObject(rel);
+                    }
                 }
 
                 db.SaveChanges();
@@ -587,6 +669,9 @@ namespace StrawmanDBLibray
                 {
                     case Classes.StrawmanDataTables.STRWM_NTS_DATA_BCK:
                         tmp = db.STRWM_NTS_DATA_BCK.Select(m=>m).ToList();
+                        break;
+                    case Classes.StrawmanDataTables.STRWM_NTS_DATA:
+                        tmp = db.STRWM_NTS_DATA.Select(m => m).ToList();
                         break;
                     case Classes.StrawmanDataTables.STRWM_MARKET_DATA_BCK:
                         tmp = db.STRWM_MARKET_DATA_BCK.Select(m=>m).ToList();

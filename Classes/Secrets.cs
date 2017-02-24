@@ -13,7 +13,7 @@ namespace StrawmanDBLibray.Classes
         private const string BBDD_PRO = "VM22078D0\\SQLEXPRESS";
 
         private static string _env = BBDD_DEV;//Desarrollo
-        //private string _env = BBDD_PRO;//Producción
+        //private static string _env = BBDD_PRO;//Producción
         //public const string CONN_STRING = @"metadata=res://*/Entites.Godzilla2Model.csdl|res://*/Entites.Godzilla2Model.ssdl|res://*/Entites.Godzilla2Model.msl;provider=System.Data.SqlClient;provider connection string=""data source=VM22078D0\SQLEXPRESS;initial catalog=godzillaV2;persist security info=True;user id=" + USER + @";password=" + PASSWORD + @";MultipleActiveResultSets=True;App=EntityFramework""";
         public static string CONN_STRING = @"metadata=res://*/;provider=System.Data.SqlClient;provider connection string=""data source="+_env+";initial catalog=godzilla;persist security info=True;user id=" + USER + @";password=" + PASSWORD + @";multipleactiveresultsets=True;App=EntityFramework""";
     }

@@ -13,4 +13,3 @@ C:\Users\Angel Oterino\Documents\Visual Studio 2012\Projects\StrawmanApp\Strawma
 C:\Users\Angel Oterino\Documents\Visual Studio 2012\Projects\StrawmanApp\StrawmanDBLibray\obj\Debug\StrawmanDBLibray.dll
 C:\Users\Angel Oterino\Documents\Visual Studio 2012\Projects\StrawmanApp\StrawmanDBLibray\obj\Debug\StrawmanDBLibray.pdb
 C:\Users\Angel Oterino\Documents\Visual Studio 2012\Projects\StrawmanApp\StrawmanDBLibray\obj\Debug\StrawmanDBLibray.csprojResolveAssemblyReference.cache
-C:\Users\Angel\Documents\Visual Studio 2012\Projects\StrawmanApp\StrawmanDBLibray\obj\Debug\StrawmanDBLibray.csprojResolveAssemblyReference.cache

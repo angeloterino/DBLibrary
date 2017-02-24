@@ -485,6 +485,40 @@
     <EntitySet Name="v_WRK_FRANCHISE_CUSTOM_DATA" EntityType="godzillaDBLibraryModel.v_WRK_FRANCHISE_CUSTOM_DATA" />
     <EntitySet Name="v_WRK_MANAGEMENT_LETTERS_DATA" EntityType="godzillaDBLibraryModel.v_WRK_MANAGEMENT_LETTERS_DATA" />
     <EntitySet Name="v_WRK_MONTHLY_COMMENTS_DATA" EntityType="godzillaDBLibraryModel.v_WRK_MONTHLY_COMMENTS_DATA" />
+    <EntitySet Name="v_KEYBRANDS_MASTER" EntityType="godzillaDBLibraryModel.v_KEYBRANDS_MASTER" />
+    <EntitySet Name="CALCS_BRANDS_CONFIG" EntityType="godzillaDBLibraryModel.CALCS_BRANDS_CONFIG" />
+    <EntitySet Name="CALCS_MARKETS_CONFIG" EntityType="godzillaDBLibraryModel.CALCS_MARKETS_CONFIG" />
+    <EntitySet Name="v_WRK_MANAGEMENT_LETTERS" EntityType="godzillaDBLibraryModel.v_WRK_MANAGEMENT_LETTERS" />
+    <EntitySet Name="MANAGEMENT_LETTERS_MASTER_REL" EntityType="godzillaDBLibraryModel.MANAGEMENT_LETTERS_MASTER_REL" />
+    <EntitySet Name="BRAND_CONTRIBUTION" EntityType="godzillaDBLibraryModel.BRAND_CONTRIBUTION" />
+    <AssociationSet Name="FK_BRAND_CONTRIBUTION_KPI_MASTER1" Association="godzillaDBLibraryModel.FK_BRAND_CONTRIBUTION_KPI_MASTER1">
+      <End Role="KPI_MASTER" EntitySet="KPI_MASTER" />
+      <End Role="BRAND_CONTRIBUTION" EntitySet="BRAND_CONTRIBUTION" />
+    </AssociationSet>
+    <EntitySet Name="STRWM_BRAND_DATA" EntityType="godzillaDBLibraryModel.STRWM_BRAND_DATA" />
+    <EntitySet Name="STRWM_MARKET_DATA" EntityType="godzillaDBLibraryModel.STRWM_MARKET_DATA" />
+    <EntitySet Name="STRWM_NTS_DATA" EntityType="godzillaDBLibraryModel.STRWM_NTS_DATA" />
+    <AssociationSet Name="FK_STRWM_BRAND_DATA_BRAND_MASTER" Association="godzillaDBLibraryModel.FK_STRWM_BRAND_DATA_BRAND_MASTER">
+      <End Role="BRAND_MASTER" EntitySet="BRAND_MASTER" />
+      <End Role="STRWM_BRAND_DATA" EntitySet="STRWM_BRAND_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_NTS_DATA_BRAND_MASTER" Association="godzillaDBLibraryModel.FK_STRWM_NTS_DATA_BRAND_MASTER">
+      <End Role="BRAND_MASTER" EntitySet="BRAND_MASTER" />
+      <End Role="STRWM_NTS_DATA" EntitySet="STRWM_NTS_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_BRAND_DATA_MARKET_MASTER" Association="godzillaDBLibraryModel.FK_STRWM_BRAND_DATA_MARKET_MASTER">
+      <End Role="MARKET_MASTER" EntitySet="MARKET_MASTER" />
+      <End Role="STRWM_BRAND_DATA" EntitySet="STRWM_BRAND_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_MARKET_DATA_MARKET_MASTER" Association="godzillaDBLibraryModel.FK_STRWM_MARKET_DATA_MARKET_MASTER">
+      <End Role="MARKET_MASTER" EntitySet="MARKET_MASTER" />
+      <End Role="STRWM_MARKET_DATA" EntitySet="STRWM_MARKET_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STRWM_NTS_DATA_MARKET_MASTER" Association="godzillaDBLibraryModel.FK_STRWM_NTS_DATA_MARKET_MASTER">
+      <End Role="MARKET_MASTER" EntitySet="MARKET_MASTER" />
+      <End Role="STRWM_NTS_DATA" EntitySet="STRWM_NTS_DATA" />
+    </AssociationSet>
+    <EntitySet Name="NTS_MASTER" EntityType="godzillaDBLibraryModel.NTS_MASTER" />
   </EntityContainer>
   <EntityType Name="WRK_BOY_BASIC_DATA">
     <Key>
@@ -761,6 +795,7 @@
     <Property Name="PARENT" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="ORDER" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="CHANNEL" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="BRAND_CONTRIBUTION1" Relationship="godzillaDBLibraryModel.FK_BRAND_CONTRIBUTION_KPI_MASTER1" FromRole="KPI_MASTER" ToRole="BRAND_CONTRIBUTION" />
   </EntityType>
   <EntityType Name="BRAND_MASTER">
     <Key>
@@ -780,6 +815,8 @@
     <NavigationProperty Name="MARKET_MASTER" Relationship="godzillaDBLibraryModel.FK_BRAND_MASTER_MARKET_MASTER" FromRole="BRAND_MASTER" ToRole="MARKET_MASTER" />
     <NavigationProperty Name="STRWM_BOY_DATA" Relationship="godzillaDBLibraryModel.FK_STRWM_BOY_DATA_BRAND_MASTER" FromRole="BRAND_MASTER" ToRole="STRWM_BOY_DATA" />
     <NavigationProperty Name="ROSETTA_LOADER" Relationship="godzillaDBLibraryModel.FK_ROSETTA_LOADER_BRAND_MASTER" FromRole="BRAND_MASTER" ToRole="ROSETTA_LOADER" />
+    <NavigationProperty Name="STRWM_BRAND_DATA" Relationship="godzillaDBLibraryModel.FK_STRWM_BRAND_DATA_BRAND_MASTER" FromRole="BRAND_MASTER" ToRole="STRWM_BRAND_DATA" />
+    <NavigationProperty Name="STRWM_NTS_DATA" Relationship="godzillaDBLibraryModel.FK_STRWM_NTS_DATA_BRAND_MASTER" FromRole="BRAND_MASTER" ToRole="STRWM_NTS_DATA" />
   </EntityType>
   <EntityType Name="CHANNEL_MASTER">
     <Key>
@@ -801,6 +838,9 @@
     <NavigationProperty Name="BRAND_MASTER" Relationship="godzillaDBLibraryModel.FK_BRAND_MASTER_MARKET_MASTER" FromRole="MARKET_MASTER" ToRole="BRAND_MASTER" />
     <NavigationProperty Name="STRWM_BOY_DATA" Relationship="godzillaDBLibraryModel.FK_STRWM_BOY_DATA_MARKET_MASTER" FromRole="MARKET_MASTER" ToRole="STRWM_BOY_DATA" />
     <NavigationProperty Name="ROSETTA_LOADER" Relationship="godzillaDBLibraryModel.FK_ROSETTA_LOADER_MARKET_MASTER" FromRole="MARKET_MASTER" ToRole="ROSETTA_LOADER" />
+    <NavigationProperty Name="STRWM_BRAND_DATA" Relationship="godzillaDBLibraryModel.FK_STRWM_BRAND_DATA_MARKET_MASTER" FromRole="MARKET_MASTER" ToRole="STRWM_BRAND_DATA" />
+    <NavigationProperty Name="STRWM_MARKET_DATA" Relationship="godzillaDBLibraryModel.FK_STRWM_MARKET_DATA_MARKET_MASTER" FromRole="MARKET_MASTER" ToRole="STRWM_MARKET_DATA" />
+    <NavigationProperty Name="STRWM_NTS_DATA" Relationship="godzillaDBLibraryModel.FK_STRWM_NTS_DATA_MARKET_MASTER" FromRole="MARKET_MASTER" ToRole="STRWM_NTS_DATA" />
   </EntityType>
   <Association Name="FK_BRAND_MASTER_MARKET_MASTER">
     <End Type="godzillaDBLibraryModel.MARKET_MASTER" Role="MARKET_MASTER" Multiplicity="0..1" />
@@ -1402,6 +1442,8 @@
     <Property Name="SOURCE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GROUP_ORDER" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="STATUS" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="WRK_BRAND_BTG">
     <Key>
@@ -1585,7 +1627,7 @@
     <Property Name="BRAND" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MAT_COL1" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="MAT_COL2" Type="Double" />
-    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="Decimal" Precision="11" Scale="2" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1602,7 +1644,7 @@
     <Property Name="BRAND" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_COL1" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="MONTH_COL2" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1653,7 +1695,7 @@
     <Property Name="BRAND" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="BTG_COL1" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="BTG_COL2" Type="Double" />
-    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1858,7 +1900,7 @@
     <Property Name="BRAND" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="BTG_COL1" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="BTG_COL2" Type="Double" />
-    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1875,7 +1917,7 @@
     <Property Name="BRAND" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MAT_COL1" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="MAT_COL2" Type="Double" />
-    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1892,7 +1934,7 @@
     <Property Name="BRAND" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_COL1" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="MONTH_COL2" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -1953,7 +1995,7 @@
     <Property Name="BRAND" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="YTD_COL1" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="YTD_COL2" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="1" />
+    <Property Name="PCVSPY" Type="Decimal" Precision="10" Scale="2" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
@@ -2048,8 +2090,8 @@
     <Property Name="BRAND_GROUTH" Type="Decimal" Precision="14" Scale="3" />
     <Property Name="MARKET_SHARE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PT_PLUS_MINUS" Type="Decimal" Precision="19" Scale="2" />
-    <Property Name="MARKET_SIZE" Type="Decimal" Precision="38" Scale="6" />
-    <Property Name="BRAND_SIZE" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="MARKET_SIZE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="BRAND_SIZE" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
@@ -2073,8 +2115,8 @@
     <Property Name="BRAND_GROUTH" Type="Decimal" Precision="14" Scale="3" />
     <Property Name="MARKET_SHARE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PT_PLUS_MINUS" Type="Decimal" Precision="19" Scale="2" />
-    <Property Name="MARKET_SIZE" Type="Decimal" Precision="38" Scale="6" />
-    <Property Name="BRAND_SIZE" Type="Decimal" Precision="38" Scale="6" />
+    <Property Name="MARKET_SIZE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="BRAND_SIZE" Type="Decimal" Precision="38" Scale="0" />
     <Property Name="TYPE" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
@@ -2154,6 +2196,8 @@
     <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Name="SUPER" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="SUPER_CALC" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="ORDER" Type="Decimal" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CHANNEL" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="MENU_CONFIG">
     <Key>
@@ -2177,6 +2221,11 @@
     <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
     <Property Name="DISABLED" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
     <Property Name="DIVIDER_BEFORE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENCY" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CURRENCY_ADJUST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="PERIOD" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="WC" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="PC_ADJUST" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="USER_ROLE_TYPES">
     <Key>
@@ -2362,5 +2411,253 @@
     <Property Name="YTD_PT" Type="Decimal" Precision="38" Scale="6" />
     <Property Name="YEAR_PERIOD" Type="Decimal" Precision="19" Scale="0" />
     <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="v_KEYBRANDS_MASTER">
+    <Key>
+      <PropertyRef Name="ROW_ID" />
+    </Key>
+    <Property Type="Int64" Name="ROW_ID" Nullable="false" />
+    <Property Type="Decimal" Name="ID" Precision="18" Scale="0" />
+    <Property Type="String" Name="NAME" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="BRAND" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="MARKET" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CHANNEL" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="GROUP" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="CONFIG_MARKET" Precision="1" Scale="0" />
+    <Property Type="Decimal" Name="CONFIG_BRAND" Precision="1" Scale="0" />
+  </EntityType>
+  <EntityType Name="CALCS_BRANDS_CONFIG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MARKET" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="BRAND" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FRANCHISECFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="KEYBRANDSCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="BRANDSCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="GROUPCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="CHANNELCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="SUPERCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="FRANCHISE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="KEYBRAND" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SELLINSELLOUTCFG" Type="Decimal" Precision="1" Scale="0" />
+  </EntityType>
+  <EntityType Name="CALCS_MARKETS_CONFIG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MARKET" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="BRAND" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="FRANCHISECFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="KEYBRANDSCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="BRANDSCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="GROUPCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="CHANNELCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="FRANCHISE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SUPERCFG" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="KEYBRAND" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SELLINSELLOUTCFG" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="v_WRK_MANAGEMENT_LETTERS">
+    <Key>
+      <PropertyRef Name="GROUP_ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" />
+    <Property Name="GROUP_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="COUNTRY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MAIN_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MAIN_GROUP" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="BRAND" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CHANNEL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GROUP" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="MANAGEMENT_LETTERS_MASTER_REL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MASTER_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="BRAND" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CHANNEL" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GROUP" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="BRAND_CONTRIBUTION">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KPI_ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="COL1" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="COL2" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="COL3" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="YEAR_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="KPI_MASTER1" Relationship="godzillaDBLibraryModel.FK_BRAND_CONTRIBUTION_KPI_MASTER1" FromRole="BRAND_CONTRIBUTION" ToRole="KPI_MASTER" />
+  </EntityType>
+  <Association Name="FK_BRAND_CONTRIBUTION_KPI_MASTER1">
+    <End Type="godzillaDBLibraryModel.KPI_MASTER" Role="KPI_MASTER" Multiplicity="1" />
+    <End Type="godzillaDBLibraryModel.BRAND_CONTRIBUTION" Role="BRAND_CONTRIBUTION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KPI_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BRAND_CONTRIBUTION">
+        <PropertyRef Name="KPI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="STRWM_BRAND_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DATA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOURCE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MARKET" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="BRAND" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GROUP" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="YEAR_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MONTH" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="YTD" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MAT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="WC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TRANSACTION_ID" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="USER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BRAND_MASTER" Relationship="godzillaDBLibraryModel.FK_STRWM_BRAND_DATA_BRAND_MASTER" FromRole="STRWM_BRAND_DATA" ToRole="BRAND_MASTER" />
+    <NavigationProperty Name="MARKET_MASTER" Relationship="godzillaDBLibraryModel.FK_STRWM_BRAND_DATA_MARKET_MASTER" FromRole="STRWM_BRAND_DATA" ToRole="MARKET_MASTER" />
+  </EntityType>
+  <EntityType Name="STRWM_MARKET_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DATA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SOURCE" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MARKET" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GROUP" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="YEAR_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MONTH" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="YTD" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="MAT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="WC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="SB" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TRANSACTION_ID" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="USER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="MARKET_MASTER" Relationship="godzillaDBLibraryModel.FK_STRWM_MARKET_DATA_MARKET_MASTER" FromRole="STRWM_MARKET_DATA" ToRole="MARKET_MASTER" />
+  </EntityType>
+  <EntityType Name="STRWM_NTS_DATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CHANNEL" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MARKET" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="BRAND" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="NTS_CFG" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MONTH_AMOUNT_ACTUAL" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="MONTH_AMOUNT_FBP" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="MONTH_AMOUNT_PY" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="MONTH_CHANGE_FBP" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="MONTH_CHANGE_PY" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="YTD_AMOUNT_ACTUAL" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="YTD_AMOUNT_FBP" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="YTD_AMOUNT_PY" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="YTD_CHANGE_FBP" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="YTD_CHANGE_PY" Type="Decimal" Precision="18" Scale="10" />
+    <Property Name="TRANSACTION_ID" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="YEAR_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MONTH_PERIOD" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="USER" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_DATE" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BRAND_MASTER" Relationship="godzillaDBLibraryModel.FK_STRWM_NTS_DATA_BRAND_MASTER" FromRole="STRWM_NTS_DATA" ToRole="BRAND_MASTER" />
+    <NavigationProperty Name="MARKET_MASTER" Relationship="godzillaDBLibraryModel.FK_STRWM_NTS_DATA_MARKET_MASTER" FromRole="STRWM_NTS_DATA" ToRole="MARKET_MASTER" />
+  </EntityType>
+  <Association Name="FK_STRWM_BRAND_DATA_BRAND_MASTER">
+    <End Type="godzillaDBLibraryModel.BRAND_MASTER" Role="BRAND_MASTER" Multiplicity="0..1" />
+    <End Type="godzillaDBLibraryModel.STRWM_BRAND_DATA" Role="STRWM_BRAND_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRAND_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_BRAND_DATA">
+        <PropertyRef Name="BRAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STRWM_NTS_DATA_BRAND_MASTER">
+    <End Type="godzillaDBLibraryModel.BRAND_MASTER" Role="BRAND_MASTER" Multiplicity="1" />
+    <End Type="godzillaDBLibraryModel.STRWM_NTS_DATA" Role="STRWM_NTS_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRAND_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_NTS_DATA">
+        <PropertyRef Name="BRAND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STRWM_BRAND_DATA_MARKET_MASTER">
+    <End Type="godzillaDBLibraryModel.MARKET_MASTER" Role="MARKET_MASTER" Multiplicity="0..1" />
+    <End Type="godzillaDBLibraryModel.STRWM_BRAND_DATA" Role="STRWM_BRAND_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARKET_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_BRAND_DATA">
+        <PropertyRef Name="MARKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STRWM_MARKET_DATA_MARKET_MASTER">
+    <End Type="godzillaDBLibraryModel.MARKET_MASTER" Role="MARKET_MASTER" Multiplicity="0..1" />
+    <End Type="godzillaDBLibraryModel.STRWM_MARKET_DATA" Role="STRWM_MARKET_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARKET_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_MARKET_DATA">
+        <PropertyRef Name="MARKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STRWM_NTS_DATA_MARKET_MASTER">
+    <End Type="godzillaDBLibraryModel.MARKET_MASTER" Role="MARKET_MASTER" Multiplicity="1" />
+    <End Type="godzillaDBLibraryModel.STRWM_NTS_DATA" Role="STRWM_NTS_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARKET_MASTER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="STRWM_NTS_DATA">
+        <PropertyRef Name="MARKET" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="NTS_MASTER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mat_Local_Class_2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mat_Local_Class_3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mat_Local_Class_4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MARKET_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="STRAWMAN_CHECK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CHANNEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MARKET" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BRAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>
